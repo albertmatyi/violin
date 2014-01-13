@@ -1,0 +1,19 @@
+<template name="page">
+	<div class="container">
+		{{> header}}
+
+		{{!> ad }}
+
+		{{ renderRouter }}
+		
+		{{> footer}}
+	</div>
+</template>
+
+<template name="contents">
+	<div class="row marketing">
+		{{# each contents}}
+			{{> content }}
+		{{/each}}
+	</div>
+</template>
