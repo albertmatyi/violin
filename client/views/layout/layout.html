@@ -1,0 +1,16 @@
+<template name="layout">
+	<div class="container">
+		<div class="header">
+			<h3 class="text-muted">Transylvania Violin Grand Prix</h3>
+			<ul class="nav nav-pills pull-right">	
+				{{ yield "nav" }}
+			</ul>
+		</div>
+		
+		{{ yield }}
+		
+		<div class="footer">
+			{{ yield "footer"}}
+		</div>
+	</div>
+</template>

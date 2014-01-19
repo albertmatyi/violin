@@ -1,0 +1,16 @@
+<template name="categoryNav">
+	{{# each categories}}
+		{{#if categories.count }}
+			{{> categoryNavDropdown }}
+		{{/if}}
+		{{#unless categories.count }}
+			{{> categoryLink }}
+		{{/unless}}
+	{{/ each}}
+</template>
+
+<template name="categoryLink">
+	<li class="{{#if active}}active{{/if}}">
+		<a href="{{pathFor 'category'}}">{{title}}</a>
+	</li>
+</template>
