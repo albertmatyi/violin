@@ -1,14 +1,26 @@
 <template name="layout">
 	<div class="container">
 		<div class="header">
-			<h3 class="text-muted">Transylvania Violin Grand Prix</h3>
-			<ul class="nav nav-pills pull-right">	
-				{{ yield "nav" }}
-			</ul>
-		</div>
-		
+			<nav class="navbar navbar-default navbar-inverse" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">Transylvania Violin Grand Prix</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					{{ yield "nav" }}
+				</ul>
+			</div>
+		</nav>
 		{{ yield }}
-		
+
 		<div class="footer">
 			{{ yield "footer"}}
 		</div>

@@ -1,4 +1,5 @@
 <template name="categoryNav">
+	<ul class="nav navbar-nav">
 	{{# each categories}}
 		{{#if categories.count }}
 			{{> categoryNavDropdown }}
@@ -7,6 +8,7 @@
 			{{> categoryLink }}
 		{{/unless}}
 	{{/ each}}
+	</ul>
 </template>
 
 <template name="categoryLink">
