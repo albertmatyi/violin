@@ -13,7 +13,9 @@ var createCategory = function (title, parent) {
 };
 
 fillWithData = function () {
-	
+	CategoryCollection.remove({});
+	PostCollection.remove({});
+
 	var catId = createCategory('Home');
 	createCategory('Intro Video', catId);
 	createCategory('News blocks', catId);
