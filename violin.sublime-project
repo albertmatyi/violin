@@ -4,7 +4,7 @@
 		{
 			"follow_symlinks": true,
 			"path": "/home/albertmatyi/work/js/violin",
-			"file_exclude_patterns": [".meteor/*", "packages/*"]
+			"file_exclude_patterns": [".meteor/*", "packages/*", ".demeteorized/*", ".openshift/*"]
 		}
 	]
 }
