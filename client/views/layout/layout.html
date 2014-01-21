@@ -1,8 +1,14 @@
 <template name="layout">
+	<div class="top-colorbar"></div>
 	<div class="container">
 		<div class="header">
 			<nav class="navbar navbar-default navbar-inverse" role="navigation">
 				<!-- Brand and toggle get grouped for better mobile display -->
+				<a class="navbar-brand" href="/">
+					Transylvania Violin Grand Prix
+				</a>
+				<div class="logo-spacer visible-xs visible-sm">
+				</div>
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span>
@@ -10,17 +16,18 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">Transylvania Violin Grand Prix</a>
+					
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					{{ yield "nav" }}
-				</ul>
-			</div>
-		</nav>
-		{{ yield }}
-
+				</div>
+			</nav>
+		</div>
+		<div class="main clearfix">
+			{{ yield }}
+		</div>
 		<div class="footer">
 			{{ yield "footer"}}
 		</div>

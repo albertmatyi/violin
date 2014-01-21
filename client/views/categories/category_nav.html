@@ -1,12 +1,20 @@
 <template name="categoryNav">
 	<ul class="nav navbar-nav">
 	{{# each categories}}
-		{{#if categories.count }}
-			{{> categoryNavDropdown }}
+		{{#if placeholder }}
+			<li class="logo-placeholder visible-md">
+				<a href=""></a>
+			</li>
+			<li class="logo-placeholder visible-lg">
+				<a href=""></a>				
+			</li>
+		{{else}}
+			{{#if categories.count }}
+				{{> categoryNavDropdown }}
+			{{else}}
+				{{> categoryLink }}
+			{{/if}}
 		{{/if}}
-		{{#unless categories.count }}
-			{{> categoryLink }}
-		{{/unless}}
 	{{/ each}}
 	</ul>
 </template>

@@ -1,5 +1,12 @@
 var categories = function () {
-	return CategoryCollection.find({'parent': this._id});
+	var cats = CategoryCollection.find({'parent': this._id});
+	if (!this._id) {
+		cats = cats.fetch();
+		cats.splice(cats.length / 2, 0, {
+			'placeholder': true
+		});
+	}
+	return cats;
 };
 
 var isActive = function () {
@@ -25,4 +32,4 @@ Template.categoryNavDropdown.events({
 	'click .dropdown > a': function (e) {
 		e.preventDefault();
 	}
-});
+});	

@@ -1,4 +1,47 @@
-.nav a {
-	text-transform: uppercase;
-	.joseFont();	
+@menuMargTop: 75px;
+@colorbarH: 10px;
+@logoH: 285px;
+.top-colorbar {
+	height: @colorbarH;
+	background-color: @brownBg;
+}
+.navbar {
+    margin-top: @menuMargTop;
+}
+.logo-placeholder {
+	&.visible-md {
+	    width: 230px;
+	}
+	&.visible-lg {
+	    width: 350px;
+	}
+}
+.logo-spacer {
+	height: @logoH * .7;
+}
+.navbar {
+	.navbar-brand {
+		@w: 265px;
+		@h: @logoH;
+
+		display: block;
+		position: absolute;
+		height: @h;
+		width: @w;
+		top: -@menuMargTop - @colorbarH - 1px;
+		left: 50%;
+		margin-left: -@w / 2;
+		padding: 0;
+
+		background-image: url(/pix/logo.png);
+		text-indent: 150%;
+	    white-space: nowrap;
+	    overflow: hidden;
+
+		z-index: 100;
+	}
+	.nav a {
+		text-transform: uppercase;
+		.joseFont();	
+	}
 }

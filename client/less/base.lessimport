@@ -1,13 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
-.joseFont(){
+.joseFont() {
 	font-family: 'Josefin Sans', Helvetica, Arial, sans;
 }
 body {
-	background: #222;
+	background: #222 url(/pix/bg.png) repeat;
 	color: #fff;
 }
 
 a {
 	color: #fff;
-
 }
+
+@grayBorder: #4d5148;
+@grayBg: #0e1311;
+@brownBg: #d6d2b8;
+@highlightOrange: #d4a030;
