@@ -12,10 +12,12 @@ if (Meteor.isServer) {
 	Meteor.publish('app-props', function () {
 		return AppCollection.find();
 	});
-}
-
-if (Meteor.isClient) {
-	Meteor.subscribe('posts');
-	Meteor.subscribe('categories');
-	Meteor.subscribe('app-props');	
+	var timestampIt = {
+		'insert': function () {
+			this.updated = + new Date()
+			return false;
+		}
+	};
+	CategoryCollection.deny(timestampIt);
+	PostCollection.deny(timestampIt);
 }

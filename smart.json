@@ -1,6 +1,7 @@
 {
   "packages": {
     "iron-router": {},
-    "fast-render": {}
+    "fast-render": {},
+    "bootstrap3-less": {}
   }
 }

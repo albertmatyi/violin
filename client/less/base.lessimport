@@ -1,17 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
-.joseFont() {
-	font-family: 'Josefin Sans', Helvetica, Arial, sans;
-}
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,200);
+@font-family-sans-serif: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 body {
 	background: #222 url(/pix/bg.png) repeat;
-	color: #fff;
 }
 
-a {
-	color: #fff;
-}
-
-@grayBorder: #4d5148;
-@grayBg: #0e1311;
-@brownBg: #d6d2b8;
-@highlightOrange: #d4a030;

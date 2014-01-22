@@ -20,13 +20,13 @@ var isActive = function () {
 Template.categoryNav.helpers({
 	'categories': categories,
 });
-Template.categoryNavDropdown.helpers({
+Template.categoryNavDropdown.helpers(_.extend({
 	'categories': categories,
 	'active': isActive
-});
-Template.categoryLink.helpers({
+}, i18n.templateHelperFor('title')));
+Template.categoryLink.helpers(_.extend({
 	'active': isActive
-});
+}, i18n.templateHelperFor('title')));
 
 Template.categoryNavDropdown.events({
 	'click .dropdown > a': function (e) {

@@ -11,24 +11,26 @@ Router.configure({
 Router.map(function () {
 	this.route('category', {
 		'path': '/category/:_id',
-		'template': 'posts',
+		'template': 'page',
 		waitOn: function () {
 			return [Meteor.subscribe('posts'), Meteor.subscribe('categories')];
 		},
 		'data': function () {
 			return {
+				'category': CategoryCollection.findOne(this.params._id),
 				'posts': PostCollection.find({parent: this.params._id})
 			};
 		}
 	});
 	this.route('home', {
 		'path': '/',
-		'template': 'posts',
+		'template': 'page',
+		waitOn: function () {
+			return [Meteor.subscribe('categories')];
+		},
 		'data': function () {
-			return {
-				// CategoryCollection.findOne()._id
-				'posts': PostCollection.find({parent: undefined})
-			};
+			var fc = CategoryCollection.findOne();
+			Router.go('category', fc);
 		}
 	});
 });

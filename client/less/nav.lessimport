@@ -34,6 +34,7 @@
 		padding: 0;
 
 		background-image: url(/pix/logo.png);
+		background-repeat: no-repeat;
 		text-indent: 150%;
 	    white-space: nowrap;
 	    overflow: hidden;
@@ -42,6 +43,5 @@
 	}
 	.nav a {
 		text-transform: uppercase;
-		.joseFont();	
 	}
 }

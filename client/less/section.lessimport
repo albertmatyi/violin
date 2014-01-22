@@ -1,0 +1,10 @@
+.section {
+	& > * > .title {
+		background: @orange;
+		color: @gray-dark;
+		font-weight: 300;
+		text-align: center;
+		padding: 10px 0;
+		margin-bottom: 1em;
+	}
+}

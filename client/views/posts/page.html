@@ -1,0 +1,6 @@
+<template name="page">
+	<div class="main clearfix {{#unless category.type}}normal{{/unless}} {{category.type}}">
+		{{> sections}}
+		{{> posts}}
+	</div>
+</template>
