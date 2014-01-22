@@ -1,0 +1,35 @@
+.editor-wrapper {
+  .transition(@time: 1s, @ease: ease){
+    -webkit-transition: all @time @ease;
+    -moz-transition: all @time @ease;
+    -ms-transition: all @time @ease;
+    -o-transition: all @time @ease;
+    transition: all @time @ease;
+  }
+
+  .transition(.5s);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 500;
+  .editor {
+    .transition(.5s);
+    position: absolute;
+    background: rgba(255, 255, 255, .9);
+    left: 20%;
+    height: 100%;
+    width: 80%;
+    .body{
+      padding: 2em;
+    }
+  }
+}
+
+.editor-wrapper.init {
+  background: rgba(0, 0, 0, 0);
+  .editor {
+    left: 100%;
+  }
+}
