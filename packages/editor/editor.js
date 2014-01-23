@@ -95,13 +95,11 @@ Editor = function (options) {
 
     this.show = function () {
         $('body').append($el);
-        $el.on('click', function (e) {
-            e.stopPropagation();
-        });
-        $('.save').on('click', function () {
+        $el.find('form').on('submit', function (e) {
+            e.preventDefault();
             hideAnd('save');
-        });
-        $('.discard').on('click', function () {
+        }).on('click', '.discard', function (e) {
+            e.preventDefault();
             hideAnd('discard');
         });
         setTimeout(function (){

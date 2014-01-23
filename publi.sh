@@ -13,7 +13,7 @@ demeteorizer
 rm .openshift/violingp/programs -r
 rm .openshift/violingp/server -r
 # move folders
-mv -fv .demeteorized/program .openshift/violingp
+mv -fv .demeteorized/programs .openshift/violingp
 mv -fv .demeteorized/server .openshift/violingp
 
 # update boot.js with the right version numbers
