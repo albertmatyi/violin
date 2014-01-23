@@ -1,5 +1,10 @@
 <template name="posts">
 	{{# each posts}}
-		{{> post }}
+		{{> post}}
+	{{/each}}
+</template>
+<template name="postSummaries">
+	{{# each posts}}
+		{{> postSummary}}
 	{{/each}}
 </template>

@@ -1,12 +1,11 @@
-
 var languify = function (str) {
 	var langs = AppCollection.findOne({key: 'languages'}).value;
 	var obj = {};
 	for (var i = langs.length - 1; i >= 0; i--) {
 		obj[langs[i]] = str + langs[i];
-	};
+	}
 	return obj;
-}
+};
 var createPost = function (parent, image) {
 	var imgURL = image ? 'http://lorempixel.com/400/200/?s=' + Math.random():undefined;
 	PostCollection.insert({'title': languify(fixie.fetchPhrase()), 'description': languify(fixie.fetchParagraph()), 'parent': parent, 'image': imgURL});
@@ -62,7 +61,7 @@ var fillWithData = function () {
 	catL0 = createCategory('Support Us', undefined, true);
 	catL1 = createCategory('Become a sponsor', catL0);
 	catL1 = createCategory('Join us', catL0);
-	
+
 	catL0 = createCategory('Contact');
 };
 

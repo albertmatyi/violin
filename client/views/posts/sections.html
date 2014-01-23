@@ -6,7 +6,11 @@
 				<h3 class="title">{{title}}</h3>
 			</div>
 			<div class="clearfix"></div>
-			{{> posts posts}}
+			{{#if ../type is 'home'}}
+				{{> postSummaries posts}}
+			{{else}}
+				{{> posts posts}}
+			{{/if}}
 		</div>
 		{{/each}}
 	{{/with}}

@@ -1,34 +1,59 @@
-<template name="post">
+<template name="postSummary">
 	<div class="col-md-6 post">
 		<div class="row">
 			{{#if image}}
 			<div class="col-md-6 image-wrapper">
-				<div class="thumbnail">
-					<div class="image" style="background-image: url({{image}})">
-						<div class="arrow right visible-md visible-lg">
-							<div class="color"></div>
-						</div>
-						<div class="arrow down visible-xs visible-sm">
-							<div class="color"></div>
-						</div>
-					</div>
-				</div>
+				{{> postImage}}
 			</div>
 			{{/if}}
 			<div class="{{#if image}}col-md-6{{else}}col-md-12{{/if}} content">
 				<div class="thumbnail">
-					<h3 class="title">{{title}}</h3>
+					<h4 class="title">{{title}}</h4>
 					<div class="description">
 						<p>
 							{{{descriptionSummary}}}
 
 							... 
 						</p>
-						<p class="center">
+						<p class="read-more">
 							<a href="#">Read More</a>
 						</p>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<template name="post">
+	<div class="col-md-12 post">
+		<div class="row">
+			{{#if image}}
+			<div class="col-md-3 image-wrapper">
+				{{> postImage}}
+			</div>
+			{{/if}}
+			<div class="{{#if image}}col-md-9{{else}}col-md-12{{/if}} content">
+				<div class="thumbnail">
+					<h4 class="title">{{title}}</h4>
+					<div class="description">
+						<p>
+							{{{description}}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="postImage">
+	<div class="thumbnail">
+		<div class="image" style="background-image: url({{image}})">
+			<div class="arrow right visible-md visible-lg">
+				<div class="color"></div>
+			</div>
+			<div class="arrow down visible-xs visible-sm">
+				<div class="color"></div>
 			</div>
 		</div>
 	</div>
