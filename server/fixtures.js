@@ -20,7 +20,7 @@ var createCategory = function (title, parent, hasDropdown, type) {
 	return catId;
 };
 
-var fillWithData = function () {
+fillWithData = function () {
 	AppCollection.insert({key: 'languages', value: ['en','hu','ro']});
 
 	var catL0, catL1, catL2;

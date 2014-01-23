@@ -5,7 +5,9 @@ Router.configure({
 	'yieldTemplates': {
 		'categoryNav': {to: 'nav'},
 		'footer': {to: 'footer'}
-	},
+	}, waitOn: function () {
+		return Meteor.subscribe('app-props');
+	}
 });
 
 Router.map(function () {

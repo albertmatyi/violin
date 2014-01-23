@@ -8,6 +8,7 @@
 			{{/if}}
 			<div class="{{#if image}}col-md-6{{else}}col-md-12{{/if}} content">
 				<div class="thumbnail">
+					{{>postControls}}
 					<h4 class="title">{{title}}</h4>
 					<div class="description">
 						<p>
@@ -34,6 +35,7 @@
 			{{/if}}
 			<div class="{{#if image}}col-md-9{{else}}col-md-12{{/if}} content">
 				<div class="thumbnail">
+					{{>postControls}}
 					<h4 class="title">{{title}}</h4>
 					<div class="description">
 						<p>
@@ -56,5 +58,12 @@
 				<div class="color"></div>
 			</div>
 		</div>
+	</div>
+</template>
+
+<template name="postControls">
+	<div class="admin-controls">
+		<button class="btn btn-primary edit"><span class="fa fa-edit"></span></button>
+		<button class="btn btn-danger delete"><span class="fa fa-trash-o"></span></button>
 	</div>
 </template>

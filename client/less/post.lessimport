@@ -9,6 +9,11 @@
 		border-width: @borderSize;
 		border-radius: 0px;
 		position: relative;
+		.admin-controls {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
 		.arrow {
 			@arrowSize: 16px;
 			position: absolute;

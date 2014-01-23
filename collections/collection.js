@@ -20,4 +20,8 @@ if (Meteor.isServer) {
 	};
 	CategoryCollection.deny(timestampIt);
 	PostCollection.deny(timestampIt);
+	PostCollection.allow({
+		remove: function () { return true; },
+		update: function () { return true; }
+	})
 }
