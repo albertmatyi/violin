@@ -1,31 +1,13 @@
 @import "packages/bootstrap3-less/bootstrap.lessimport";
 @import '/packages/font-awesome-4-less/font-awesome.lessimport';
 
-@grayBorder: #4d5148;
-@grayBg: #0e1311;
-@brownBg: #d6d2b8;
-@orange: #d4a030;
+@import "variables.lessimport";
+@import "bg.lessimport";
 
-@brand-primary: @orange;
-@headings-color: @orange;
-@text-color: #d6d2b8;
-@link-color: @orange;
+@import "mixins.lessimport";
 
-@dropdown-bg: @grayBg;
-@dropdown-link-active-bg: darken(@dropdown-bg, 10%);
-@dropdown-link-active-color: @orange;
-
-@navbar-inverse-bg: rgba(0,0,0,0);
-@navbar-inverse-color: @text-color;
-@navbar-default-link-color: @text-color;
-@navbar-inverse-link-hover-color: @orange;
-@border-radius-base: 0px;
-.editor-wrapper .editor {
-	background: rgba(34, 34, 34, 0.9);
-}
-
-@import "base.lessimport";
 @import "layout.lessimport";
+
 @import "section.lessimport";
 @import "post.lessimport";
 @import "nav.lessimport";

@@ -17,6 +17,44 @@ var isActive = function () {
 	return active;
 };
 
+var layoutMenu = function () {
+	var $lis = $('.navbar-nav > li');
+	if ($(window).width() < 992) {
+		$lis.css({width: ''});
+		return;
+	}
+	var $placeholder = $('.navbar-nav > li.logo-placeholder');
+	var separatorIdx = $placeholder.index();
+	var w1=0;
+	var $els1 = _.map($lis.slice(0, separatorIdx), function (e) {
+		var $e = $(e);
+		w1 += $e.outerWidth()
+		return $e;
+	});
+	var w2=0;
+	var $els2 = _.map($lis.slice(separatorIdx+1), function (e) {
+		var $e = $(e);
+		w2 += $e.outerWidth()
+		return $e;
+	});
+	var ulW = $('.navbar-nav').width();
+	var phW = Math.max(260, Math.min(320, ulW - (w1 + w2)));
+	var sideW = (ulW - phW) / 2 - 1;
+	_.each($els1, function ($e) {
+		$e.css({width: sideW * $e.width()/w1 + 'px'})
+	});
+	$placeholder.css({width: phW + 'px'});
+	_.each($els2, function ($e) {
+		$e.css({width: sideW * $e.width()/w2 + 'px'})
+	});
+};
+
+$(window).on('resize', layoutMenu);
+
+Template.categoryNav.rendered = function () {
+	layoutMenu();
+};
+
 Template.categoryNav.helpers({
 	'categories': categories,
 });

@@ -1,0 +1,38 @@
+.arrow(@arrowSize: 16px, @innerColor: @grayBg) {
+	position: absolute;
+	height: 0;
+	width: 0;
+	border-width: @arrowSize;
+	border-color: transparent;
+	border-style: solid;
+	.color {
+		position: absolute;
+		height: 0;
+		width: 0;
+		border-width: @arrowSize - @borderSize * 2;
+		border-color: transparent;
+		border-style: solid;
+	}
+	&.right {
+		border-left-color: @grayBorder;
+		left: 100%;
+		top: 50%;
+		margin-top: -@arrowSize;
+		.color {
+			border-left-color: @innerColor;
+			top: @borderSize * 2 - @arrowSize;
+			left: -@arrowSize;
+		}
+	}
+	&.down {
+		border-top-color: @grayBorder;
+		top: 100%;
+		left: 50%;
+		margin-left: -@arrowSize;
+		.color {
+			border-top-color: @innerColor;
+			top: -@arrowSize;
+			left: 2 * @borderSize - @arrowSize;
+		}
+	}
+}

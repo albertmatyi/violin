@@ -1,0 +1,32 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,200);
+@font-family-sans-serif: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+@borderSize: 1px;
+@grayBorder: #4d5148;
+
+@background: #222 url(/pix/bg.png) repeat;
+@grayBg: #0e1311;
+@brownBg: #d6d2b8;
+@orange: #d4a030;
+
+@brand-primary: @orange;
+@headings-color: @orange;
+@text-color: #d6d2b8;
+@link-color: @orange;
+
+@dropdown-bg: @grayBg;
+@dropdown-link-active-bg: transparent;
+@dropdown-link-active-color: @orange;
+@dropdown-link-color: @text-color;
+@dropdown-link-hover-bg: transparent;
+@dropdown-link-hover-color: @orange;
+
+@navbar-inverse-bg: rgba(0,0,0,0);
+@navbar-inverse-color: @text-color;
+@navbar-inverse-link-color: @text-color;
+
+@navbar-inverse-link-hover-bg: transparent;
+@navbar-inverse-link-hover-color: @orange;
+
+
+@border-radius-base: 0px;

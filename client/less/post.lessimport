@@ -2,7 +2,6 @@
 	 @contentHPad: 23px;
 	 @contentH: 210px;
 	.thumbnail {
-		@borderSize: 1px;
 		height: @contentH;
 		background-color: transparent;
 		border-color: @grayBorder;
@@ -15,43 +14,7 @@
 			top: 0;
 		}
 		.arrow {
-			@arrowSize: 16px;
-			position: absolute;
-			height: 0;
-			width: 0;
-			border-width: @arrowSize;
-			border-color: transparent;
-			border-style: solid;
-			.color {
-				position: absolute;
-				height: 0;
-				width: 0;
-				border-width: @arrowSize - @borderSize * 2;
-				border-color: transparent;
-				border-style: solid;
-			}
-			&.right {
-				border-left-color: @grayBorder;
-				left: 100%;
-				top: 50%;
-				margin-top: -@arrowSize;
-				.color {
-					border-left-color: @grayBg;
-					top: @borderSize * 2 - @arrowSize;
-					left: -@arrowSize;
-				}
-			}
-			&.down {
-				border-top-color: @grayBorder;
-				top: 100%;
-				left: 50%;
-				margin-left: -@arrowSize;
-				.color {
-					border-top-color: @grayBg;
-					top: -@arrowSize;
-					left: 2 * @borderSize - @arrowSize;
-				}
-			}
+			.arrow(16px);
 		}
 	}
 
