@@ -1,3 +1,6 @@
+.header {
+	position: relative;
+}
 .main {
 	margin-top: 85px;
 	padding: 30px 0;

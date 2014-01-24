@@ -3,10 +3,8 @@
 	{{# each categories}}
 		{{#if placeholder }}
 			<li class="logo-placeholder visible-md">
-				<a href=""></a>
 			</li>
 			<li class="logo-placeholder visible-lg">
-				<a href=""></a>				
 			</li>
 		{{else}}
 			{{#if hasDropdown }}
@@ -17,6 +15,22 @@
 		{{/if}}
 	{{/ each}}
 	</ul>
+</template>
+
+<template name="categoryNavDropdown">
+	<li class="dropdown {{#if active}}active{{/if}}">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				{{title}} <b class="caret"></b>
+			</a>
+
+		<!-- <div class="ffx-bug-wrapper"> -->
+			<ul class="dropdown-menu">
+				{{#each categories}}
+					{{> categoryLink }}
+				{{/each}}
+			</ul>
+		<!-- </div> -->
+	</li>
 </template>
 
 <template name="categoryLink">

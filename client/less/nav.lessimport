@@ -6,15 +6,7 @@
 	background-color: @brownBg;
 }
 .navbar {
-    margin-top: @menuMargTop;
-}
-.logo-placeholder {
-	&.visible-md {
-	    width: 230px;
-	}
-	&.visible-lg {
-	    width: 350px;
-	}
+	margin-top: @menuMargTop;
 }
 .logo-spacer {
 	height: @logoH * .7;
@@ -36,12 +28,55 @@
 		background-image: url(/pix/logo.png);
 		background-repeat: no-repeat;
 		text-indent: 150%;
-	    white-space: nowrap;
-	    overflow: hidden;
+		white-space: nowrap;
+		overflow: hidden;
 
 		z-index: 100;
 	}
-	.nav a {
-		text-transform: uppercase;
+	.collapse {
+		@media (min-width: @screen-xs-max) {
+			display: table !important;
+			width: 100%;
+		}
+	}
+	.nav {
+		@media (min-width: @screen-xs-max) {
+			float: none;
+			display: table-row !important;
+		}
+		& > li {
+			@media (min-width: @screen-xs-max) {
+				border-bottom: solid 1px @grayBorder; 
+				border-top: solid 1px @grayBorder; 
+				display: table-cell !important;
+				float: none;
+				position: relative;
+			}
+			&.logo-placeholder{
+				border-bottom: none;
+				border-top: none;
+				&.visible-md {
+					width: 0px;
+					@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+						width: 230px;
+					}
+				}
+				&.visible-lg {
+					width: 0px;
+					@media (min-width: @screen-lg-min) {
+						width: 350px;
+					}
+
+				}
+			}
+			.ffx-bug-wrapper {
+				height: 100%;
+				width: 100%;
+				position: relative;
+			}
+			a {
+				text-transform: uppercase;
+			}
+		}
 	}
 }

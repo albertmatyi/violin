@@ -27,6 +27,7 @@ var setupOptions = function (options) {
     for (var fieldName in options.fields) {
         if (options.fields.hasOwnProperty(fieldName)) {
             var field = options.fields[fieldName];
+            field.default = _.isFunction(field.default) ? field.default():field.default;
             var calcdOpts = {
                 name: fieldName,
                 label: capitalize(fieldName),

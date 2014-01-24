@@ -1,20 +1,47 @@
-var getterFor = function (name) {
+Template.languageBar.helpers({
+	languages: function () {
+		var langs = AppCollection.findOne({key: 'languages'});
+		return _.map(langs.value, function(e) {
+			return {language: e};
+		});
+	}
+});
+
+Template.languageBar.events({
+	'click .language-bar a': function (e) {
+		e.preventDefault();
+		Session.set('language', this.language);
+	}
+});
+
+var getterFor = function (key, fn) {
 	return function () {
-		if (this[name]) {
-			return this[name][i18n.language()];
+		if (this[key]) {
+			return fn(this[key][i18n.language()]);
 		} else {
-			console.warn('No i18n data for ' + name + ' in:');
+			console.warn('No i18n data for ' + key + ' in:');
 			console.warn(this);
 			return '#ERR';
 		}
 	};
 };
 
+var identityF = function (v) { return v; };
+
 i18n = {
 	templateHelperFor: function () {
 		var obj = {};
 		for (var i = arguments.length - 1; i >= 0; i--) {
-			obj[arguments[i]] = getterFor(arguments[i]);
+			var key, fn;
+			if (!_.isString(arguments[i])) {
+				var ps = _.pairs(arguments[i])[0];
+				key = ps[0];
+				fn = ps[1];
+			} else {
+				key = arguments[i];
+				fn = identityF;
+			}
+			obj[key] = getterFor(key, fn);
 		}
 		return obj;
 	},

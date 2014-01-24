@@ -7,7 +7,7 @@ var languify = function (str) {
 	return obj;
 };
 var createPost = function (parent, image) {
-	var imgURL = image ? 'http://lorempixel.com/400/200/?s=' + Math.random():undefined;
+	var imgURL = image ? fixie.fetchImageURL():undefined;
 	PostCollection.insert({'title': languify(fixie.fetchPhrase()), 'description': languify(fixie.fetchParagraph()), 'parent': parent, 'image': imgURL});
 };
 

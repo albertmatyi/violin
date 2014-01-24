@@ -15,14 +15,28 @@
   background: rgba(0, 0, 0, .5);
   z-index: 500;
   .editor {
+    @left: 20%;
     .transition(.5s);
     position: absolute;
     background: rgba(255, 255, 255, .9);
-    left: 20%;
+    left: @left;
     height: 100%;
     width: 80%;
+    overflow: auto;
     .body{
       padding: 2em;
+      padding-bottom: 100px;
+    }
+    .footer {
+      position: fixed; 
+      bottom: 0;
+      left: @left;
+      right: 0;
+      padding: 20px 0;
+      text-align: center;
+      & > *{
+        display: inline-block;
+      }
     }
   }
 }
