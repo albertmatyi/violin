@@ -1,3 +1,5 @@
+var weight = 100;
+
 var languify = function (str) {
 	var langs = AppCollection.findOne({key: 'languages'}).value;
 	var obj = {};
@@ -8,11 +10,11 @@ var languify = function (str) {
 };
 var createPost = function (parent, image) {
 	var imgURL = image ? fixie.fetchImageURL():undefined;
-	PostCollection.insert({'title': languify(fixie.fetchPhrase()), 'description': languify(fixie.fetchParagraph()), 'parent': parent, 'image': imgURL});
+	PostCollection.insert({'title': languify(fixie.fetchPhrase()), 'description': languify(fixie.fetchParagraph()), 'parent': parent, 'image': imgURL, weight: weight += 10});
 };
 
 var createCategory = function (title, parent, hasDropdown, type) {
-	var catId = CategoryCollection.insert({'title': languify(title), parent: parent, hasDropdown:hasDropdown, type: type});
+	var catId = CategoryCollection.insert({'title': languify(title), parent: parent, hasDropdown:hasDropdown, type: type, weight: weight += 10});
 	var n = Math.floor(Math.random() * 5 + 3);
 	while (n-- > 0) {
 		createPost(catId, n !== 4);

@@ -4,10 +4,10 @@ AppCollection = new Meteor.Collection('app-props');
 
 if (Meteor.isServer) {
 	Meteor.publish('posts', function () {
-		return PostCollection.find();
+		return PostCollection.find({}, {sort: {weight: 1}});
 	});
 	Meteor.publish('categories', function () {
-		return CategoryCollection.find();
+		return CategoryCollection.find({}, {sort: {weight: 1}});
 	});
 	Meteor.publish('app-props', function () {
 		return AppCollection.find();
@@ -18,10 +18,19 @@ if (Meteor.isServer) {
 			return false;
 		}
 	};
+
+	var allowAdmin = function () { return true; };
+
 	CategoryCollection.deny(timestampIt);
 	PostCollection.deny(timestampIt);
 	PostCollection.allow({
-		remove: function () { return true; },
-		update: function () { return true; }
+		insert: allowAdmin,
+		remove: allowAdmin,
+		update: allowAdmin
+	})
+	CategoryCollection.allow({
+		insert: allowAdmin,
+		remove: allowAdmin,
+		update: allowAdmin
 	})
 }

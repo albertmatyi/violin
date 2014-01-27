@@ -1,6 +1,6 @@
 @menuMargTop: 75px;
 @colorbarH: 10px;
-@logoH: 285px;
+@logoH: 272px;
 .top-colorbar {
 	height: @colorbarH;
 	background-color: @brownBg;
@@ -35,6 +35,22 @@
 	}
 	.nav {
 		width: 100%;
+		li {
+			position: relative;
+			.btn {
+				display: inline-block;
+				padding: 0;
+				position: absolute;
+				top: 0;
+				right: 0px;
+				&.edit {
+					right: 13px;
+				}
+				&.add {
+					right: 29px;
+				}
+			}
+		}
 		> li {
 			&.active > a {
 				@borderH: 5px;
@@ -49,11 +65,14 @@
 				padding-left: @navbar-padding-horizontal - 9px;
 				padding-right: @navbar-padding-horizontal - 9px;
 			}
-			&.open .dropdown-menu li {
-				@border: solid 1px #333;
-				border-bottom: @border;
-				&:first-child {
-					border-top: @border;
+
+			&.open .dropdown-menu {
+				li {
+					@border: solid 1px #333;
+					border-bottom: @border;
+					&:first-child {
+						border-top: @border;
+					}
 				}
 			}
 			@media (min-width: @screen-xs-max) {

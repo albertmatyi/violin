@@ -2,7 +2,6 @@
 	 @contentHPad: 23px;
 	 @contentH: 210px;
 	.thumbnail {
-		height: @contentH;
 		background-color: transparent;
 		border-color: @grayBorder;
 		border-width: @borderSize;
@@ -18,15 +17,31 @@
 		}
 	}
 
-	.image-wrapper, .content {
+	.image-wrapper {
 		height: @contentH + @contentHPad;
 		overflow: hidden;
-	}
-	.image-wrapper {
+		.thumbnail {
+			height: @contentH;
+		}
 		.image {
 			height: 100%;
 			background-size: cover;
 			background-position: center;
+		}
+	}
+	.content {
+			min-height: @contentH + @contentHPad;
+			.thumbnail {
+				min-height: @contentH;
+			}
+		}
+	&.summary {
+		.content {
+			height: @contentH + @contentHPad;
+			overflow: hidden;
+			.thumbnail {
+				height: @contentH;
+			}
 		}
 	}
 	.content {

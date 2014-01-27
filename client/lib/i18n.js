@@ -1,3 +1,9 @@
+Handlebars.registerHelper('i18n', function (v) {
+	v = AppCollection.findOne({key: v + '.' + i18n.language()}) ||
+		AppCollection.findOne({key: v}) ||
+		v;
+	return v;
+});
 Template.languageBar.helpers({
 	languages: function () {
 		var langs = AppCollection.findOne({key: 'languages'});

@@ -7,7 +7,9 @@ var defaultFieldOptions = {
     'type': 'text',                         // textarea, select, radio, checkbox. Default: 'text'
     'options': null,                        // object with k-v pairs or simple [] (data provider for select/radio/checkbox)
     'label': 'Field label',                 // defaults to capitalized field name,
-    'default': null                         // default value when no value object is provided
+    'default': null,                        // default value when no value object is provided
+    'post': function (v) { return v; },     // method executed after data retrieval
+    'render': function () { return true; }  // method executed to check if field has to be rendered
 };
 
 var defaultOptions = {
@@ -76,13 +78,19 @@ Editor = function (options) {
         for (var i = options.fields.length - 1; i >= 0; i--) {
             var field = options.fields[i];
             var val;
-            if (field.type === 'file') {
+            switch(field.type) {
+                case 'file':
                 var files = $('#' + field.name, $el)[0].files;
                 val = files.length > 0 ? files[0]:null;
-            } else {
+                break;
+                case 'checkbox':
+                val = $('#' + field.name, $el).prop('checked');
+                break;
+                default:
                 val = $('#' + field.name, $el).val();
+                break;
             }
-            data[field.name] = val;
+            data[field.name] = field.post(val);
         }
         return data;
     };

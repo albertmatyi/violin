@@ -28,6 +28,10 @@ var POST_FIELDS = {
 	'description': {
 		type: 'textarea',
 		default: fixie.fetchParagraph
+	},
+	weight: {
+		post: function (val) { return parseInt(val); },
+		hint: 'The heavier the element, the later it will appear'
 	}
 };
 Template.postControls.events({
@@ -55,7 +59,7 @@ Template.postAdd.events({
 		var self = this;
 		var editor = new Editor({
 			'fields': i18n.editorFieldsDef(POST_FIELDS, ['title', 'description']),
-			'data': i18n.editorPrepData(['title', 'description']),
+			'data': i18n.editorPrepData({}, ['title', 'description']),
 			'save': function (obj) {
 				obj = i18n.editorProcessData(obj);
 				PostCollection.insert(

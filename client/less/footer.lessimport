@@ -1,5 +1,20 @@
 .footer{
-	p {
-		text-align: center;
+	.main-partners {
+		p {
+			text-align: left;
+		}
+	}
+	.organized-by {
+		p {
+			text-align: center;
+			img {
+				display: inline-block;
+			}
+		}
+	}
+	.media-partners {
+		p {
+			text-align: right;
+		}
 	}
 }

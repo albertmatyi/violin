@@ -1,6 +1,6 @@
 .language-bar {
 	top: -4em;
-	right: 0;
+	right: @navbar-padding-horizontal;
 	position: absolute;
 	float: right;
 	list-style: none;

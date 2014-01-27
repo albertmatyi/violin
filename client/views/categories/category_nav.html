@@ -1,18 +1,18 @@
 <template name="categoryNav">
 	<ul class="nav navbar-nav">
-	{{# each categories}}
-		{{#if placeholder }}
-			<li class="logo-placeholder visible-md visible-lg">
-				<a href=""></a>
-			</li>
-		{{else}}
-			{{#if hasDropdown }}
-				{{> categoryNavDropdown }}
+		{{# each categories}}
+			{{#if placeholder }}
+				<li class="logo-placeholder visible-md visible-lg">
+					<a href=""></a>
+				</li>
 			{{else}}
-				{{> categoryLink }}
+				{{#if hasDropdown }}
+					{{> categoryNavDropdown }}
+				{{else}}
+					{{> categoryLink }}
+				{{/if}}
 			{{/if}}
-		{{/if}}
-	{{/ each}}
+		{{/ each}}
 	</ul>
 </template>
 
@@ -20,11 +20,12 @@
 	<li class="dropdown {{#if active}}active{{/if}}">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			{{title}} <b class="caret"></b>
+			{{>adminNavControls}}
 		</a>
 
 		<ul class="dropdown-menu">
 			{{#each categories}}
-				{{> categoryLink }}
+			{{> categoryLink }}
 			{{/each}}
 		</ul>
 		<span class="arrow down">
@@ -35,6 +36,15 @@
 
 <template name="categoryLink">
 	<li class="{{#if active}}active{{/if}}">
-		<a href="{{pathFor 'category'}}">{{title}}</a>
+		<a href="{{pathFor 'category'}}">
+		{{title}}
+		{{>adminNavControls}}
+		</a>
 	</li>
+</template>
+
+<template name="adminNavControls">
+	<button class="btn btn-inverse add" title="Add subcategory"><span class="fa fa-plus"></span></button>
+	<button class="btn btn-inverse edit" title="Edit category"><span class="fa fa-edit"></span></button>
+	<button class="btn btn-inverse delete" title="Delete category"><span class="fa fa-trash-o"></span></button>
 </template>
