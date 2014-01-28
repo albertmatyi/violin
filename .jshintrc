@@ -36,6 +36,7 @@
         "PostCollection",
         "AppCollection",
         "Users",
+        "Category",
         "i18n",
         "Accounts"
     ]

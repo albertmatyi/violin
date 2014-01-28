@@ -17,6 +17,13 @@ var isActive = function () {
 	return active;
 };
 
+var positionDropdown = function ($el, width) {
+	var $dd = $el.find('ul.dropdown-menu');
+	$dd.css({
+		left: -($dd.outerWidth() - width) /2
+	});
+};
+
 var layoutMenu = function () {
 	var $lis = $('.navbar-nav > li');
 	if ($(window).width() < 992) {
@@ -41,11 +48,15 @@ var layoutMenu = function () {
 	var phW = Math.max(260, Math.min(320, ulW - (w1 + w2)));
 	var sideW = (ulW - phW) / 2 - 1;
 	_.each($els1, function ($e) {
-		$e.css({width: sideW * $e.width()/w1 + 'px'});
+		var nw = sideW * $e.width()/w1;
+		positionDropdown($e, nw);
+		$e.css({width: nw + 'px'});
 	});
 	$placeholder.css({width: phW + 'px'});
 	_.each($els2, function ($e) {
-		$e.css({width: sideW * $e.width()/w2 + 'px'});
+		var nw = sideW * $e.width()/w2;
+		positionDropdown($e, nw);
+		$e.css({width: nw + 'px'});
 	});
 };
 
