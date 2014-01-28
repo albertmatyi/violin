@@ -6,7 +6,5 @@
 	padding: 30px 0;
 	background: @grayBg;
 	border: solid 1px @grayBorder;
-}
-.footer {
-	padding: 10px;
+	margin-bottom: 10em;
 }

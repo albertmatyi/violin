@@ -1,4 +1,7 @@
 .footer{
+	margin: 7em 3em 3em;
+	border-top: solid 1px @grayBorder;
+	padding: 1em;
 	.main-partners {
 		p {
 			text-align: left;
@@ -9,6 +12,9 @@
 			text-align: center;
 			img {
 				display: inline-block;
+			}
+			&.copyright {
+				border-top: solid 1px @grayBorder;
 			}
 		}
 	}

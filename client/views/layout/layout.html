@@ -26,11 +26,12 @@
 				</nav>
 				{{> languageBar }}
 			</div>
-			
-			{{ yield }}
+			<div class="main clearfix {{category.type}}">
+				{{ yield }}
 
-			<div class="footer">
-				{{ yield "footer"}}
+				<div class="footer">
+					{{ yield "footer"}}
+				</div>
 			</div>
 			{{>appConfigButton}}
 		</div>
