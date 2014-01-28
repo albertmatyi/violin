@@ -11,12 +11,12 @@ Template.sections.helpers(_.extend({
 }, i18n.templateHelperFor('title')));
 
 Template.sections.events({
-	'click .edit.btn': function (evt) {
+	'click .title .edit.btn': function (evt) {
 		evt.preventDefault();
 		evt.stopImmediatePropagation();
 		Category.editCategory(this);
 	},
-	'click .delete.btn': function (evt) {
+	'click .title .delete.btn': function (evt) {
 		evt.preventDefault();
 		evt.stopImmediatePropagation();
 		if (confirm('Are you sure?')) {
