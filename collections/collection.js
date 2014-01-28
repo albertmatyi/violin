@@ -14,7 +14,7 @@ if (Meteor.isServer) {
 	});
 	var timestampIt = {
 		'insert': function () {
-			this.updated = + new Date()
+			this.updated = + new Date();
 			return false;
 		}
 	};
@@ -23,14 +23,19 @@ if (Meteor.isServer) {
 
 	CategoryCollection.deny(timestampIt);
 	PostCollection.deny(timestampIt);
+	AppCollection.allow({
+		insert: allowAdmin,
+		remove: allowAdmin,
+		update: allowAdmin
+	});
 	PostCollection.allow({
 		insert: allowAdmin,
 		remove: allowAdmin,
 		update: allowAdmin
-	})
+	});
 	CategoryCollection.allow({
 		insert: allowAdmin,
 		remove: allowAdmin,
 		update: allowAdmin
-	})
+	});
 }

@@ -68,10 +68,15 @@ Template.meteorEditorSelect.selected = function (selection) {
     return this.value === selection ? 'selected="selected"':'';
 };
 
+
 Editor = function (options) {
     options = setupOptions(options);
 
     var $el;
+
+    var elForName = function (name) {
+        return $('#' + name.replace(/\./gi, '\\.'), $el);
+    };
 
     var collectData = function () {
         var data = {};
@@ -80,14 +85,14 @@ Editor = function (options) {
             var val;
             switch(field.type) {
                 case 'file':
-                var files = $('#' + field.name, $el)[0].files;
+                var files = elForName(field.name)[0].files;
                 val = files.length > 0 ? files[0]:null;
                 break;
                 case 'checkbox':
-                val = $('#' + field.name, $el).prop('checked');
+                val = elForName(field.name).prop('checked');
                 break;
                 default:
-                val = $('#' + field.name, $el).val();
+                val = elForName(field.name).val();
                 break;
             }
             data[field.name] = field.post(val);

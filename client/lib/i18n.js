@@ -1,8 +1,11 @@
-Handlebars.registerHelper('i18n', function (v) {
-	v = AppCollection.findOne({key: v + '.' + i18n.language()}) ||
-		AppCollection.findOne({key: v}) ||
-		v;
-	return v;
+Handlebars.registerHelper('i18n', function (key) {
+	key = key + '.' + i18n.language();
+	var val = AppCollection.findOne({key: key});
+	if (!val) {
+		val = {key: key, value: key};
+		AppCollection.insert(val);
+	}
+	return val.value;
 });
 Template.languageBar.helpers({
 	languages: function () {
