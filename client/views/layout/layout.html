@@ -27,8 +27,9 @@
 				{{> languageBar }}
 			</div>
 			<div class="main clearfix {{category.type}}">
-				{{ yield }}
-
+				<div class="content">
+					{{ yield }}
+				</div>
 				<div class="footer">
 					{{ yield "footer"}}
 				</div>

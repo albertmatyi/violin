@@ -1,4 +1,4 @@
-.footer{
+.main > .footer{
 	margin: 7em 3em 3em;
 	border-top: solid 1px @grayBorder;
 	padding: 1em;
