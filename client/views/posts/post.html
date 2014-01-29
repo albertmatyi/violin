@@ -68,12 +68,16 @@
 </template>
 
 <template name="postControls">
+{{#if renderAdmin}}
 	<div class="admin-controls">
 		<button class="btn btn-primary edit" title="Edit"><span class="fa fa-edit"></span></button>
 		<button class="btn btn-danger delete" title="Delete"><span class="fa fa-trash-o"></span></button>
 	</div>
+{{/if}}
 </template>
 
 <template name="postAdd">
-	<button class="btn btn-primary add"><span class="fa fa-plus"> Add post to {{title}}</span></button>
+	{{#if renderAdmin}}
+		<button class="btn btn-primary add"><span class="fa fa-plus"> Add post to {{title}}</span></button>
+	{{/if}}
 </template>

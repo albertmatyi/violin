@@ -19,7 +19,7 @@ if (Meteor.isServer) {
 		}
 	};
 
-	var allowAdmin = function () { return true; };
+	var allowAdmin = function () { return Meteor.user().username === 'admin'; };
 
 	CategoryCollection.deny(timestampIt);
 	PostCollection.deny(timestampIt);

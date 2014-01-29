@@ -3,6 +3,7 @@
     "iron-router": {},
     "fast-render": {},
     "bootstrap3-less": {},
-    "font-awesome-4-less": {}
+    "font-awesome-4-less": {},
+    "accounts-ui-bootstrap-3": {}
   }
 }

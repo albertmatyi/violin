@@ -44,7 +44,9 @@
 </template>
 
 <template name="adminNavControls">
-	<button class="btn btn-inverse add" title="Add subcategory"><span class="fa fa-plus"></span></button>
-	<button class="btn btn-inverse edit" title="Edit category"><span class="fa fa-edit"></span></button>
-	<button class="btn btn-inverse delete" title="Delete category"><span class="fa fa-trash-o"></span></button>
+	{{#if renderAdmin}}
+		<button class="btn btn-inverse add" title="Add subcategory"><span class="fa fa-plus"></span></button>
+		<button class="btn btn-inverse edit" title="Edit category"><span class="fa fa-edit"></span></button>
+		<button class="btn btn-inverse delete" title="Delete category"><span class="fa fa-trash-o"></span></button>
+	{{/if}}
 </template>

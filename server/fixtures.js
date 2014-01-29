@@ -67,6 +67,17 @@ fillWithData = function () {
 	catL0 = createCategory('Contact');
 };
 
-if (CategoryCollection.find().count() === 0) {
-	fillWithData();
-}
+
+Meteor.startup(function () {
+	if (CategoryCollection.find().count() === 0) {
+		fillWithData();
+	}
+
+	if (Meteor.users.find().count() === 0) {
+		Accounts.createUser({
+			email: 'albertmatyi@gmail.com',
+			password: 'asdasd',
+			username: 'admin'
+		});
+	}
+});

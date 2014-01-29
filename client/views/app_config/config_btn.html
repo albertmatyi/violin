@@ -1,7 +1,7 @@
 <template name="appConfigButton">
-	{{!#if currentUser}}
+	{{#if renderAdmin}}
 		<button class="btn btn-danger app-config">
 			<span class="fa fa-th"></span>
 		</button>
-	{{!/if}}
+	{{/if}}
 </template>

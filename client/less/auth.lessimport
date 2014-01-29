@@ -1,0 +1,6 @@
+#login-dropdown-list {
+	position: fixed;
+	top: 35px;
+	margin-left: 50px;
+	list-style: none;
+}
