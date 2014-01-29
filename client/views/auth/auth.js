@@ -4,11 +4,11 @@ Accounts.ui.config({
 });
 
 Handlebars.registerHelper('renderAdmin', function () {
-	return window.location.hash.indexOf('admin') !== 0 && Meteor.userId;
+	return window.location.hash.indexOf('admin') !== -1 || Meteor.userId;
 });
 
 Template.auth.helpers({
 	showLogin: function () {
-		return window.location.hash.indexOf('admin') !== 0;
+		return window.location.hash.indexOf('admin') !== -1 || Meteor.userId;
 	}
 });
