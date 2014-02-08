@@ -1,0 +1,65 @@
+<template name="galleryListItem">
+	<div class="col-md-3 gallery-list-item post">
+		<div class="row">
+			<div class="col-md-12 image-wrapper">
+				{{#with album}}
+				{{> albumCover}}
+				{{/with}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 content">
+				<div class="thumbnail">
+					{{> postControls}}
+					<h4 class="title">{{title}}</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="albumCover">
+	<div class="thumbnail">
+		<div class="image" style="background-image: url({{ feed.icon.$t }})">
+			<div class="arrow down">
+				<div class="color"></div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="gallery">
+	<div class="gallery">
+		{{#with post}}
+			{{> galleryViewer }}
+			{{> thumbnails}}
+		{{/with}}
+	</div>
+</template>
+
+<template name="galleryViewer">
+	<div class="row viewer">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="thumbnail">
+				<img src="{{ selectedImage }}" />
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="thumbnails">
+	<div class="row visible-md visible-lg thumbnails">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="row">
+				{{#each thumbnails}}
+				<div class="col-md-2">
+					<div class="thumbnail">
+						<div class="image" style="background-image: url({{ image }});" ></div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+
+</template>

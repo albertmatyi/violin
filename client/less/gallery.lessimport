@@ -1,0 +1,22 @@
+.post.gallery-list-item {
+	cursor: pointer;
+	.content {
+		.thumbnail {
+			min-height: 30px;
+			text-align: center;
+		}
+	}
+}
+
+.gallery {
+	.thumbnails {
+		.image {
+			height: 90px;
+			background-size: cover;
+			background-position: center center;
+			@media (min-width: @screen-md-max) {
+				height: 110px;
+			}
+		}
+	}
+}

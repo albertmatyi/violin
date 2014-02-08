@@ -30,3 +30,6 @@
 
 
 @border-radius-base: 0px;
+
+@thumbnail-border: @grayBorder;
+@thumbnail-bg: transparent;

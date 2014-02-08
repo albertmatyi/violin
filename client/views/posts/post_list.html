@@ -1,8 +1,17 @@
 <template name="posts">
 	{{# each posts}}
-		{{> post}}
+		{{> postEntry}}
 	{{/each}}
 </template>
+
+<template name="postEntry">
+	{{#if typeIs "gallery"}}
+		{{> galleryListItem }}
+	{{else}}
+		{{> post}}
+	{{/if}}
+</template>
+
 <template name="postSummaries">
 	{{# each posts}}
 		{{> postSummary}}

@@ -2,10 +2,6 @@
 	 @contentHPad: 23px;
 	 @contentH: 210px;
 	.thumbnail {
-		background-color: transparent;
-		border-color: @grayBorder;
-		border-width: @borderSize;
-		border-radius: 0px;
 		position: relative;
 		.admin-controls {
 			position: absolute;
