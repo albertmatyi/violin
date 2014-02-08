@@ -17,7 +17,7 @@ var POST_FIELDS = {
 		default: 100
 	}
 };
-var GALLERY_FIELDS = {
+var PHOTO_GALLERY_FIELDS = {
 	title: {
 		default: fixie.fetchPhrase
 	},
@@ -38,6 +38,28 @@ var GALLERY_FIELDS = {
 		hint: 'The heavier the element, the later it will appear',
 		default: 100
 	}
+};
+var VIDEO_GALLERY_FIELDS = {
+	title: {
+		default: fixie.fetchPhrase
+	},
+	videoId: {
+		type: 'text',
+		label: 'Youtube video id',
+		hint: '(eg. write: IJtq5l8DfdE if the youtube video url is http://www.youtube.com/watch?v=IJtq5l8DfdE)',
+		default: 'IJtq5l8DfdE'
+	},
+	weight: {
+		post: function (val) { return parseInt(val); },
+		hint: 'The heavier the element, the later it will appear',
+		default: 100
+	}
+};
+
+var FIELDS = {
+	post: POST_FIELDS,
+	photoGallery: PHOTO_GALLERY_FIELDS,
+	videoGallery: VIDEO_GALLERY_FIELDS
 };
 
 var editPost = function (category, post, postType, fields) {
@@ -83,21 +105,13 @@ Template.postControls.events({
 		}
 	},
 	'click .edit.btn': function () {
-		if (this.type === 'gallery') {
-			editPost({}, this, 'gallery', GALLERY_FIELDS);
-		} else {
-			editPost({}, this, 'post', POST_FIELDS);
-		}
+		editPost({}, this, this.type, FIELDS[this.type]);
 	}
 });
 Template.postAdd.helpers(_.extend({}, i18n.templateHelperFor('title')));
 
 Template.postAdd.events({
 	'click .add.btn': function () {
-		if (this.type === 'gallery') {
-			editPost(this, {}, 'gallery', GALLERY_FIELDS);
-		} else {
-			editPost(this, {}, 'post', POST_FIELDS);
-		}
+		editPost(this, {}, this.type, FIELDS[this.type]);
 	}
 });

@@ -13,9 +13,11 @@ var getAlbum = function () {
 	return data;
 };
 
-Template.galleryListItem.helpers(_.extend({
+Template.photoGalleryListItem.helpers(_.extend({
 	album: getAlbum
 }, i18n.templateHelperFor('title')));
+
+Template.videoGalleryListItem.helpers(_.extend({}, i18n.templateHelperFor('title')));
 
 Template.galleryViewer.helpers({
 	selectedImage: function () {

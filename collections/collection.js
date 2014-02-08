@@ -10,7 +10,7 @@ if (Meteor.isServer) {
 		return CategoryCollection.find({}, {sort: {weight: 1}});
 	});
 	Meteor.publish('app-props', function () {
-		return AppCollection.find({}, {sort: {key: 1}});
+		return AppCollection.find({key: {$exists: true}}, {sort: {key: 1}});
 	});
 	var timestampIt = {
 		'insert': function () {

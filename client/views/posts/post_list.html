@@ -5,10 +5,14 @@
 </template>
 
 <template name="postEntry">
-	{{#if typeIs "gallery"}}
-		{{> galleryListItem }}
+	{{#if typeIs "photoGallery"}}
+		{{> photoGalleryListItem }}
 	{{else}}
-		{{> post}}
+		{{#if typeIs "videoGallery"}}
+			{{> videoGalleryListItem }}
+		{{else}}
+			{{> post}}
+		{{/if}}
 	{{/if}}
 </template>
 

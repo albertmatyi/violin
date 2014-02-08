@@ -9,7 +9,12 @@ var CATEGORY_FIELDS = {
 	},
 	type: {
 		type: 'select',
-		options: {'default': 'default', home: 'home', gallery: 'gallery'}
+		options: {
+			'default': 'default',
+			home: 'home',
+			photoGallery: 'photoGallery',
+			videoGallery: 'videoGallery'
+		}
 	},
 	weight: {
 		type: 'text',

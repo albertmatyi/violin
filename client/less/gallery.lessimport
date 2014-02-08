@@ -5,6 +5,20 @@
 			text-align: center;
 		}
 	}
+	&.video {
+		.youtube-cover {
+			position: relative;
+			.fa {
+				@size: 50px;
+				font-size: @size;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -@size / 2;
+				margin-top: -@size / 2;
+			}
+		}
+	}
 }
 
 .gallery {
