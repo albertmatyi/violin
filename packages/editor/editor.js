@@ -12,14 +12,20 @@ var defaultFieldOptions = {
     'render': function () { return true; }  // method executed to check if field has to be rendered
 };
 
+var logobj = function (obj) {
+    if (typeof console !== 'undefined') {
+        console.log(obj);
+  }
+};
+
 var defaultOptions = {
     'fields': {       // should be overwritten when using, this is a sample cfg
         'fieldName0': defaultFieldOptions
         /* ... */
     },
-    'data': {},                                      // some object to populate the fields
-    'save': function (obj) { console.log(obj); },    // callback for when save is pressed
-    'discard': function (obj) { console.log(obj); }  // callback for when cancel / close is pressed
+    'data': {},        // some object to populate the fields
+    'save': logobj,    // callback for when save is pressed
+    'discard': logobj  // callback for when cancel / close is pressed
 };
 
 var setupOptions = function (options) {

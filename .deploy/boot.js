@@ -36,6 +36,9 @@ __meteor_runtime_config__ = { meteorRelease: configJson.meteorRelease };
 if (!process.env.NODE_ENV)
   process.env.NODE_ENV = 'production';
 
+if (!process.env.METEOR_SETTINGS)
+  process.env.METEOR_SETTINGS = '{"public":{"ga":{"account":"UA-47889119-1"}}}';
+
 // Map from load path to its source map.
 var parsedSourceMaps = {};
 
