@@ -1,5 +1,4 @@
 .post.gallery-list-item {
-	cursor: pointer;
 	.content {
 		.thumbnail {
 			min-height: 30px;

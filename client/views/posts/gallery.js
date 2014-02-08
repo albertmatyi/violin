@@ -17,14 +17,6 @@ Template.galleryListItem.helpers(_.extend({
 	album: getAlbum
 }, i18n.templateHelperFor('title')));
 
-Template.galleryListItem.events({
-	'click .gallery-list-item': function () {
-		Router.go('gallery', this);
-	}
-});
-
-
-
 Template.galleryViewer.helpers({
 	selectedImage: function () {
 		var img = Session.get('gallerySelection');
@@ -80,3 +72,5 @@ Meteor.startup(function () {
 	setSizes();
 	$(window).on('resize', setSizes);
 });
+
+// http://img.youtube.com/vi/4q8_OZfIp9Y/hqdefault.jpg
