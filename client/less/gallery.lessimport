@@ -8,6 +8,7 @@
 	&.video {
 		.youtube-cover {
 			position: relative;
+			cursor: pointer;
 			.fa {
 				@size: 50px;
 				font-size: @size;
@@ -30,6 +31,27 @@
 			@media (min-width: @screen-md-max) {
 				height: 110px;
 			}
+		}
+	}
+}
+
+.youtube-player {
+	position: fixed;
+	z-index: @zindex-modal + 10;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	.overlay {
+		height: 100%;
+		width: 100%;
+		background: rgba(0,0,0,.7);
+		#ytplayer {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -320px;
+			margin-top: -195px;
 		}
 	}
 }

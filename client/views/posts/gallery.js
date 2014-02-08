@@ -19,6 +19,16 @@ Template.photoGalleryListItem.helpers(_.extend({
 
 Template.videoGalleryListItem.helpers(_.extend({}, i18n.templateHelperFor('title')));
 
+Template.videoGalleryListItem.events({
+	'click .youtube-cover': function () {
+		var $player = $(Template.youtubePlayer(this));
+		$('body').append($player);
+		$player.on('click', function () {
+			$player.remove();
+		});
+	}
+});
+
 Template.galleryViewer.helpers({
 	selectedImage: function () {
 		var img = Session.get('gallerySelection');

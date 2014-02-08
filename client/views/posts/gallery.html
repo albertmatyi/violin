@@ -49,6 +49,18 @@
 		<span class="fa fa-play-circle-o"></span>
 	</div>
 </template>
+
+<template name="youtubePlayer">
+	<div class="youtube-player">
+		<div class="overlay">
+			<iframe id="ytplayer" 
+			type="text/html" width="640" height="390"
+			src="http://www.youtube.com/embed/{{videoId}}?autoplay=1&rel=0&showinfo=0&autohide=1&fs=1&modestbranding=1&origin=http://www.transylvaniagp.ro"
+			frameborder="0"/>
+		</div>
+	</div>
+</template>
+
 <template name="albumCover">
 	<div class="thumbnail">
 		<div class="image" style="background-image: url({{ feed.icon.$t }})">
@@ -62,8 +74,8 @@
 <template name="gallery">
 	<div class="gallery">
 		{{#with post}}
-			{{> galleryViewer }}
-			{{> thumbnails}}
+		{{> galleryViewer }}
+		{{> thumbnails}}
 		{{/with}}
 	</div>
 </template>
