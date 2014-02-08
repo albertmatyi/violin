@@ -4,8 +4,8 @@
 @borderSize: 1px;
 @grayBorder: #4d5148;
 
-@background: #222 url(/pix/bg.png) repeat;
-@grayBg: #0e1311;
+@background: #222 url(/pix/bg.jpg) repeat;
+@grayBg: #0d1f1f;
 @brownBg: #d6d2b8;
 @orange: #d4a030;
 

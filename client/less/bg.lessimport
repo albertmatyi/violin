@@ -4,12 +4,12 @@ body {
 	.bg-gradient {
 		content: '';
 		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		#gradient.radial(rgba(255,255,255,.3), rgba(255,255,255,0));
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		// right:0;
+		// bottom: 0;
+		#gradient.radialCust(rgba(255,255,255,.2), rgba(255,255,255,.05), 400px, center, top);
 	}
 }
 
