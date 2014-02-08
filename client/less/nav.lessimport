@@ -53,10 +53,18 @@
 		}
 		> li {
 			&.active > a {
-				@borderH: 3px;
-				border-bottom: solid @borderH @grayBorder;
-				padding-bottom: @navbar-padding-vertical - @borderH;
 				color: @text-color;
+				.bottom-line {
+					@width: 50px;
+					height: 3px;
+					width: @width;
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					margin-left: -@width/2;
+					
+					background: @grayBorder;
+				}
 			}
 			a {
 				text-transform: uppercase;
