@@ -1,6 +1,7 @@
 var toV1 = function () {
 	console.log('Updating post types.');
 	PostCollection.update({type: {$exists: false}}, {$set: {type: 'post'}}, {multi: true});
+	PostCollection.update({type: 'gallery'}, {$set: {type: 'photoGallery'}}, {multi: true});
 	AppCollection.insert({_key: 'dbVersion', value: 1});
 };
 
