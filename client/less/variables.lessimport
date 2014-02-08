@@ -2,7 +2,7 @@
 @font-family-sans-serif: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 @borderSize: 1px;
-@grayBorder: #4d5148;
+@grayBorder: #4e5148;
 
 @background: #222 url(/pix/bg.jpg) repeat;
 @grayBg: #0d1f1f;

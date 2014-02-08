@@ -53,7 +53,7 @@
 		}
 		> li {
 			&.active > a {
-				@borderH: 5px;
+				@borderH: 3px;
 				border-bottom: solid @borderH @grayBorder;
 				padding-bottom: @navbar-padding-vertical - @borderH;
 				color: @text-color;
