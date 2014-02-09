@@ -35,6 +35,9 @@
 @thumbnail-border: @grayBorder;
 @thumbnail-bg: transparent;
 
+
+@grid-gutter-width: 20px;
+
 @container-tablet:             ((720px + @grid-gutter-width));
 @container-sm:                 @container-tablet;
 

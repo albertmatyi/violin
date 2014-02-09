@@ -9,7 +9,7 @@
 			top: 0;
 		}
 		.arrow {
-			.arrow(16px);
+			.arrow(9px);
 		}
 	}
 
