@@ -1,0 +1,15 @@
+<template name="ribbonTitle">
+	<h3 class="ribbon clearfix">
+		<div class="start"></div>
+		<div class="title ">
+			{{title}} 
+		{{#if renderAdmin}}
+			<div class="admin-controls">
+				<button class="btn btn-inverse edit"><span class="fa fa-edit"></span></button>
+				<button class="btn btn-inverse delete"><span class="fa fa-trash-o"></span></button>
+			</div>
+		{{/if}}
+		</div>
+		<div class="end"></div>
+	</h3>
+</template>

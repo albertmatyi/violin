@@ -1,0 +1,16 @@
+<template name="sections">
+	{{#with category}}
+		{{#each categories}}
+		<div class="section clearfix">
+			{{> ribbonTitle}}
+			<div class="clearfix"></div>
+			{{#if summary}}
+				{{> postSummaries posts}}
+			{{else}}
+				{{> posts posts}}
+			{{/if}}
+			{{> postAdd}}
+		</div>
+		{{/each}}
+	{{/with}}
+</template>

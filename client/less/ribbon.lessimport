@@ -1,0 +1,29 @@
+.ribbon {
+	margin-bottom: 2em;
+	.start, .title, .end {
+		float: left;
+		background-repeat: repeat-x;
+		height: 45px;
+	}
+	.start {
+		background-image: url(/pix/ribbon/start.png);
+		width: 82px;
+	}
+	.title {
+		background-image: url(/pix/ribbon/bg.png);
+		color: @grayBg;
+		text-transform: uppercase;
+		padding-top: 8px;
+		padding-right: 60px;
+		padding-left: 20px;
+		.admin-controls {
+			display: inline-block;
+			position: relative;
+			right: -20px;
+		}
+	}
+	.end {
+		background-image: url(/pix/ribbon/end.png);
+		width: 30px;
+	}
+}
