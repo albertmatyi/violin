@@ -9,7 +9,7 @@ body{
 	overflow: show;
 	.flag {
 		margin-bottom: 5px;
-		width: 180px;
+		width: @social-flag-size;
 		.start, .title, .end {
 			float: left;
 			background-repeat: repeat-x;

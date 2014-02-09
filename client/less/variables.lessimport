@@ -8,6 +8,7 @@
 @grayBg: #0d1f1f;
 @brownBg: #d6d2b8;
 @orange: #d4a030;
+@social-flag-size: 75px;
 
 @brand-primary: @orange;
 @headings-color: @orange;
@@ -33,3 +34,23 @@
 
 @thumbnail-border: @grayBorder;
 @thumbnail-bg: transparent;
+
+@container-tablet:             ((720px + @grid-gutter-width));
+@container-sm:                 @container-tablet;
+
+// Medium screen / desktop
+@container-desktop:            ((940px + @grid-gutter-width));
+@container-md:                 @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop:      ((1140px + @grid-gutter-width - @social-flag-size));
+@container-lg:                 @container-large-desktop;
+
+
+.container-fixed() {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  (@social-flag-size * .7);
+  padding-right: (@social-flag-size * .7);
+  .clearfix();
+}
