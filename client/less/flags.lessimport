@@ -35,5 +35,16 @@ body{
 			background-image: url(/pix/flag/end.png);
 			width: 10px;
 		}
+		&.live {
+			.start {
+				background-image: url(/pix/flag/start_live.png);
+			}
+			.title {
+				background-image: url(/pix/flag/bg_live.png);
+			}
+			.end {
+				background-image: url(/pix/flag/end_live.png);
+			}
+		}
 	}
 }
