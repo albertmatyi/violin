@@ -1,41 +1,76 @@
 .slider {
 	position: relative;
-	overflow: hidden;
-	min-height: 400px;
-	.slide {
+	.wrapper {
 		min-height: 400px;
-		position: absolute;
+		@media (min-width: @screen-md-max) {
+			min-height: 500px;
+		}
 		height: 100%;
-		width: 100%;
-		.image {
-			background-size: cover;
-			background-position: center;
-			background-position: center;
+		border: solid 10px transparent;
+		position: relative;
+		padding: 0;
+		overflow: hidden;
+		.slide {
+			position: absolute;
 			height: 100%;
 			width: 100%;
-			.overlay {
-				position: absolute;
-
-				background: @orange;
-				height: 150%;
-				width: 100%;
-				left: 60%;
-				top: 10%;
-				.rotate(30deg);
+			z-index: 10;
+			&.active {
+				.image {
+				}
+				.overlay .text {
+					opacity: 1;
+				}
+				z-index: 20;
 			}
-			.text {
-				min-height: 50%;
+			.image {
 				position: absolute;
-				width: 25%;
-				right: 30px;
-				bottom: 10px;
-				.title, .description {
-					color: #333;
-					text-align: right;
+				background-size: cover;
+				background-position: center;
+				background-position: center;
+				height: 100%;
+				width: 100%;
+				.translate(100%, 0);
+				.transition(all 1s ease-out);
+			}
+			.overlay {
+				position: relative;
+				float: right;
+				background: @orange;
+				height: 100%;
+				max-width: 25%;
+				.triangle {
+					position: absolute;
+					left: -107px;
+					height: 100%;
+					width: 107px;
+					background: url(/pix/slider_triangle.png);
+					background-size: cover;
 				}
-				.title {
-					text-transform: uppercase;
+				.text {
+					.transition(all 1s ease-out);
+					opacity: 0;
+					padding-top: 55%;
+					@media (min-width: @screen-md-max) {
+						padding-top: 85%;
+					}
+					float: right;
+					margin: 0 3em;
+					z-index: 10;
+					position: relative;
+					.title, .description {
+						color: #333;
+						text-align: right;
+					}
+					.title {
+						text-transform: uppercase;
+					}
 				}
+			}
+			.admin-controls{
+				position: absolute;
+				top: 0;
+				right: 0;
 			}
 		}
 	}

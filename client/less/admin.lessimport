@@ -1,0 +1,11 @@
+.admin-controls {
+	.btn {
+		background: transparent;
+		color: #fff;
+		padding: 5px;
+		&:hover {
+			background: @grayBg;
+			color: @orange;
+		}
+	}
+}

@@ -6,6 +6,7 @@
     "font-awesome-4-less": {},
     "accounts-ui-bootstrap-3": {},
     "marked": {},
-    "GAnalytics": {}
+    "GAnalytics": {},
+    "jquery.transit": {}
   }
 }

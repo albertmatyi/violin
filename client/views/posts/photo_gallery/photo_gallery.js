@@ -63,7 +63,7 @@ Template.thumbnails.helpers({
 	thumbnails: function () {
 		var data = getAlbum.call(this);
 		if (data) {
-			setTimeout(function () {
+			Meteor.setTimeout(function () {
 				if (!Session.get('gallerySelection')) {
 					Session.set('gallerySelection', data.feed.entry[0]);
 				}

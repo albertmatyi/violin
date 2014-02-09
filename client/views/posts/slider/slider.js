@@ -23,6 +23,7 @@ SLIDER_FIELDS = {
 		default: 100
 	}
 };
+
 Template.slide.helpers(_.extend({
 	image: function () {
 		return this.image;
@@ -36,3 +37,39 @@ Template.slider.rendered = function () {
 	console.log($el);
 	console.log(h);
 };
+
+var intervalId;
+
+var nextSlide = function () {
+	console.log('next slide');
+	var $prevSlide = $('.slider .slide.active');
+	var $nextSlide = $prevSlide.next();
+	if (!$nextSlide.length) {
+		$nextSlide = $($('.slider .slide')[0]);
+	}
+	$prevSlide.removeClass('active');
+	$nextSlide.addClass('active');
+	Meteor.setTimeout(function () {
+		$nextSlide.find('.image').css({translate: [0, 0]});
+	}, 1);
+	Meteor.setTimeout(function () {
+		$prevSlide.find('.image').css({transform: ''});
+	}, 1000);
+};
+
+var stopSlider = function () {
+	Meteor.clearInterval(intervalId);
+};
+
+
+Template.slider.rendered = function () {
+	var slideInterval = AppCollection.findOne({key: 'sliderInterval'}).value;
+	console.log(slideInterval);
+	slideInterval = Math.max(1000, slideInterval);
+	Meteor.clearInterval(intervalId);
+	intervalId = Meteor.setInterval(nextSlide, slideInterval);
+	nextSlide();
+};
+Meteor.startup(function () {
+	Router.unload(stopSlider);
+});
