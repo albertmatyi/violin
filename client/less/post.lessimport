@@ -1,6 +1,6 @@
 .post {
 	@contentHPad: 23px;
-	@contentH: 210px;
+	@contentH: 180px;
 	.thumbnail {
 		position: relative;
 		.admin-controls {
