@@ -33,3 +33,12 @@ Template.appConfigButton.events({
 		editor.show();
 	}
 });
+
+Meteor.getConfigValue = function (key) {
+	var prop = AppCollection.findOne({key: key});
+	if (!prop) {
+		AppCollection.insert({key:key, value:key});
+		return key;
+	}
+	return prop.value;
+};
