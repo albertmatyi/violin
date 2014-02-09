@@ -19,47 +19,6 @@
 		</div>
 	</div>
 </template>
-<template name="videoGalleryListItem">
-	<div class="col-md-3 gallery-list-item video post">
-		<div class="row">
-			<div class="col-md-12 image-wrapper">
-				{{> youtubeCover}}
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 content">
-				<div class="thumbnail">
-					{{> postControls}}
-					<h4 class="title">
-						{{title}}
-					</h4>
-				</div>
-			</div>
-		</div>
-	</div>
-</template>
-
-<template name="youtubeCover">
-	<div class="thumbnail youtube-cover">
-		<div class="image" style="background-image: url(http://img.youtube.com/vi/{{ videoId }}/hqdefault.jpg)">
-			<div class="arrow down">
-				<div class="color"></div>
-			</div>
-		</div>
-		<span class="fa fa-play-circle-o"></span>
-	</div>
-</template>
-
-<template name="youtubePlayer">
-	<div class="youtube-player">
-		<div class="overlay">
-			<iframe id="ytplayer" 
-			type="text/html" width="640" height="390"
-			src="http://www.youtube.com/embed/{{videoId}}?autoplay=1&rel=0&showinfo=0&autohide=1&fs=1&modestbranding=1&origin=http://www.transylvaniagp.ro"
-			frameborder="0"/>
-		</div>
-	</div>
-</template>
 
 <template name="albumCover">
 	<div class="thumbnail">
@@ -104,5 +63,4 @@
 			</div>
 		</div>
 	</div>
-
 </template>

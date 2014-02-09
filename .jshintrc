@@ -22,6 +22,7 @@
     "globals": [
         "fixie",
         "confirm",
+        "alert",
         "console",
         "$",
         "Template",
@@ -38,6 +39,10 @@
         "Users",
         "Category",
         "i18n",
-        "Accounts"
+        "Accounts",
+        "PHOTO_GALLERY_FIELDS",
+        "VIDEO_GALLERY_FIELDS",
+        "SLIDER_FIELDS",
+        "_SOME_PLACEHOLDER_"
     ]
 }

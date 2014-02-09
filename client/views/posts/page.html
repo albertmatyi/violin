@@ -1,8 +1,18 @@
 <template name="page">
+	{{#if typeIs category "home"}}
+		{{> slider}}
+		{{#with category}}
+			{{> postAdd}}
+		{{/with}}
+	{{/if}}
 
 	{{> sections}}
-	{{> posts}}
-	{{#with category}}
-	{{> postAdd}}
-	{{/with}}
+	
+	{{#unless typeIs category "home"}}
+		{{> posts}}
+		{{#with category}}
+			{{> postAdd}}
+		{{/with}}
+	{{/unless}}
+	
 </template>

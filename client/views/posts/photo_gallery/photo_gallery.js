@@ -1,3 +1,26 @@
+PHOTO_GALLERY_FIELDS = {
+	title: {
+		default: fixie.fetchPhrase
+	},
+	username: {
+		type: 'text',
+		label: 'Google+ username',
+		hint: '(eg. write: johndoe if your gmail address is johndoe@gmail.com)',
+		default: 'albertmatyi'
+	},
+	albumId: {
+		type: 'text',
+		label: 'Google+ album ID',
+		hint: 'When you view an album, this the number that comes after "albums" in the url. Ex: https://plus.google.com/u/0/photos/110836571215849032642/albums/5940476182069855361',
+		default: '5940476182069855361'
+	},
+	weight: {
+		post: function (val) { return parseInt(val); },
+		hint: 'The heavier the element, the later it will appear',
+		default: 100
+	}
+};
+
 var baseUrl = 'https://picasaweb.google.com/data/feed/api/user/:user/albumid/:albumId?alt=json&callback=?&v=2';
 
 var getAlbum = function () {
@@ -17,17 +40,6 @@ Template.photoGalleryListItem.helpers(_.extend({
 	album: getAlbum
 }, i18n.templateHelperFor('title')));
 
-Template.videoGalleryListItem.helpers(_.extend({}, i18n.templateHelperFor('title')));
-
-Template.videoGalleryListItem.events({
-	'click .youtube-cover': function () {
-		var $player = $(Template.youtubePlayer(this));
-		$('body').append($player);
-		$player.on('click', function () {
-			$player.remove();
-		});
-	}
-});
 
 Template.galleryViewer.helpers({
 	selectedImage: function () {
@@ -44,7 +56,7 @@ Template.galleryViewer.helpers({
 });
 
 Template.galleryViewer.rendered = function () {
-	$('.thumbnail', this.firstNode).css({height: Session.get('galleryH') + 10});
+	$('.thumbnail', this.firstNode).css({height: Session.get('galleryH') + 10 });
 };
 
 Template.thumbnails.helpers({

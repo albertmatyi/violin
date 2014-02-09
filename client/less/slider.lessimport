@@ -1,0 +1,42 @@
+.slider {
+	position: relative;
+	overflow: hidden;
+	min-height: 400px;
+	.slide {
+		min-height: 400px;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		.image {
+			background-size: cover;
+			background-position: center;
+			background-position: center;
+			height: 100%;
+			width: 100%;
+			.overlay {
+				position: absolute;
+
+				background: @orange;
+				height: 150%;
+				width: 100%;
+				left: 60%;
+				top: 10%;
+				.rotate(30deg);
+			}
+			.text {
+				min-height: 50%;
+				position: absolute;
+				width: 25%;
+				right: 30px;
+				bottom: 10px;
+				.title, .description {
+					color: #333;
+					text-align: right;
+				}
+				.title {
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+}
