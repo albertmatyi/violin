@@ -1,6 +1,7 @@
 @menuMargTop: 75px;
 @colorbarH: 10px;
-@logoH: 272px;
+@logoH: 261px;
+@logoW: 268px;
 .top-colorbar {
 	height: @colorbarH;
 	background-color: @brownBg;
@@ -13,7 +14,7 @@
 }
 .navbar {
 	.navbar-brand {
-		@w: 265px;
+		@w: @logoW;
 		@h: @logoH;
 
 		display: block;

@@ -1,5 +1,6 @@
 .ribbon {
 	margin-bottom: 2em;
+	margin-left: -4px;
 	.start, .title, .end {
 		float: left;
 		background-repeat: repeat-x;

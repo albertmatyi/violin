@@ -12,5 +12,8 @@
 			{{> postAdd}}
 		</div>
 		{{/each}}
+		{{#unless categories.count }}
+			{{> ribbonTitle}}
+		{{/unless}}
 	{{/with}}
 </template>

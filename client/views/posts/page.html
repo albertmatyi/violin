@@ -1,20 +1,23 @@
 <template name="page">
 	{{#if typeIs category "home"}}
-		{{> slider}}
-		{{#with category}}
-			{{> postAdd}}
-		{{/with}}
+		{{> homepage}}
 	{{else}}
-		{{> ribbonTitle category}}
+		{{> _page}}
 	{{/if}}
+</template>
 
+<template name="_page">
 	{{> sections}}
-	
-	{{#unless typeIs category "home"}}
-		{{> posts}}
-		{{#with category}}
-			{{> postAdd}}
-		{{/with}}
-	{{/unless}}
-	
+	{{> posts}}
+	{{#with category}}
+		{{> postAdd}}
+	{{/with}}
+</template>
+
+<template name="homepage">
+	{{> slider}}
+	{{#with category}}
+		{{> postAdd}}
+	{{/with}}
+	{{> sections}}
 </template>
