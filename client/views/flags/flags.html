@@ -1,0 +1,18 @@
+<template name="flags">
+	<div class="flags">
+		{{#each flags}}
+			{{> flag}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="flag">
+	<div class="flag clearfix">
+		<div class="start"></div>
+		<a class="title" href="{{ address }}">
+			<span class="fa fa-{{ icon }}"></span>
+			<span class="text"> {{text}}</span>
+		</a>
+		<div class="end"></div>
+	</div>
+</template>

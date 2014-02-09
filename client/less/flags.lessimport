@@ -1,0 +1,39 @@
+body{ 
+	overflow-x: hidden;
+}
+.flags {
+	position: absolute;
+	right: 0px;
+	top: 0;
+	width: 0px;
+	overflow: show;
+	.flag {
+		margin-bottom: 5px;
+		width: 180px;
+		.start, .title, .end {
+			float: left;
+			background-repeat: repeat-x;
+			height: 31px;
+		}
+		.start {
+			background-image: url(/pix/flag/start.png);
+			width: 7px;
+		}
+		.title {
+			background-image: url(/pix/flag/bg.png);
+			color: @grayBg;
+			padding-top: 1px;
+			padding-right: 8px;
+			padding-left: 0px;
+			font-size: 20px;
+			text-transform: uppercase;
+			.text {
+				font-size: 16px;
+			}
+		}
+		.end {
+			background-image: url(/pix/flag/end.png);
+			width: 10px;
+		}
+	}
+}

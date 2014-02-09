@@ -7,6 +7,7 @@
 	background: @grayBg;
 	border: solid 1px @grayBorder;
 	margin-bottom: 10em;
+	position: relative;
 	.content {
 		.clearfix();
 	}
