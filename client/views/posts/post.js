@@ -7,6 +7,11 @@ var POST_FIELDS = {
 		label: 'Image URL',
 		default: fixie.fetchImageURL
 	},
+	disableBorder: {
+		type: 'checkbox',
+		label: 'Disable border',
+		default: false
+	},
 	'description': {
 		type: 'textarea',
 		default: fixie.fetchParagraph

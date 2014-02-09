@@ -30,8 +30,9 @@
 		{{>post}}
 	{{/with}}
 </template>
+
 <template name="post">
-	<div class="col-md-12 post">
+	<div class="col-md-12 post {{#if disableBorder}}no-border{{/if}}">
 		<div class="row">
 			{{#if image}}
 			<div class="col-md-3 image-wrapper">

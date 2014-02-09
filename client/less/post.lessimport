@@ -1,6 +1,6 @@
 .post {
-	 @contentHPad: 23px;
-	 @contentH: 210px;
+	@contentHPad: 23px;
+	@contentH: 210px;
 	.thumbnail {
 		position: relative;
 		.admin-controls {
@@ -26,11 +26,11 @@
 		}
 	}
 	.content {
-			min-height: @contentH + @contentHPad;
-			.thumbnail {
-				min-height: @contentH;
-			}
+		min-height: @contentH + @contentHPad;
+		.thumbnail {
+			min-height: @contentH;
 		}
+	}
 	&.summary {
 		.content {
 			height: @contentH + @contentHPad;
@@ -40,8 +40,9 @@
 			}
 		}
 	}
-	.content {
-		.title {
+	&.no-border {
+		.content .thumbnail {
+			border-color: transparent;
 		}
 	}
 }
