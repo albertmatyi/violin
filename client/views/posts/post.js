@@ -25,6 +25,7 @@ var POST_FIELDS = {
 
 var FIELDS = {
 	post: POST_FIELDS,
+	default: POST_FIELDS,
 	photoGallery: PHOTO_GALLERY_FIELDS,
 	videoGallery: VIDEO_GALLERY_FIELDS,
 	home: SLIDER_FIELDS
