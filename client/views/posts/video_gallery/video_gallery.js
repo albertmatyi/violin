@@ -1,17 +1,17 @@
 VIDEO_GALLERY_FIELDS = {
 	title: {
-		default: fixie.fetchPhrase
+		'default': fixie.fetchPhrase
 	},
 	videoId: {
 		type: 'text',
 		label: 'Youtube video id',
 		hint: '(eg. write: IJtq5l8DfdE if the youtube video url is http://www.youtube.com/watch?v=IJtq5l8DfdE)',
-		default: 'IJtq5l8DfdE'
+		'default': 'IJtq5l8DfdE'
 	},
 	weight: {
-		post: function (val) { return parseInt(val); },
+		post: function (val) { return parseInt(val, 10); },
 		hint: 'The heavier the element, the later it will appear',
-		default: 100
+		'default': 100
 	}
 };
 

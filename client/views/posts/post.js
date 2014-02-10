@@ -1,31 +1,31 @@
 var POST_FIELDS = {
 	title: {
-		default: fixie.fetchPhrase
+		'default': fixie.fetchPhrase
 	},
 	image: {
 		type: 'text',
 		label: 'Image URL',
-		default: fixie.fetchImageURL
+		'default': fixie.fetchImageURL
 	},
 	disableBorder: {
 		type: 'checkbox',
 		label: 'Disable border',
-		default: false
+		'default': false
 	},
 	'description': {
 		type: 'textarea',
-		default: fixie.fetchParagraph
+		'default': fixie.fetchParagraph
 	},
 	weight: {
-		post: function (val) { return parseInt(val); },
+		post: function (val) { return parseInt(val, 10); },
 		hint: 'The heavier the element, the later it will appear',
-		default: 100
+		'default': 100
 	}
 };
 
 var FIELDS = {
 	post: POST_FIELDS,
-	default: POST_FIELDS,
+	'default': POST_FIELDS,
 	photoGallery: PHOTO_GALLERY_FIELDS,
 	videoGallery: VIDEO_GALLERY_FIELDS,
 	home: SLIDER_FIELDS

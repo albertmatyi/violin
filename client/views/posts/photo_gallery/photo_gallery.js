@@ -1,23 +1,23 @@
 PHOTO_GALLERY_FIELDS = {
 	title: {
-		default: fixie.fetchPhrase
+		'default': fixie.fetchPhrase
 	},
 	username: {
 		type: 'text',
 		label: 'Google+ username',
 		hint: '(eg. write: johndoe if your gmail address is johndoe@gmail.com)',
-		default: 'albertmatyi'
+		'default': 'albertmatyi'
 	},
 	albumId: {
 		type: 'text',
 		label: 'Google+ album ID',
 		hint: 'When you view an album, this the number that comes after "albums" in the url. Ex: https://plus.google.com/u/0/photos/110836571215849032642/albums/5940476182069855361',
-		default: '5940476182069855361'
+		'default': '5940476182069855361'
 	},
 	weight: {
-		post: function (val) { return parseInt(val); },
+		post: function (val) { return parseInt(val, 10); },
 		hint: 'The heavier the element, the later it will appear',
-		default: 100
+		'default': 100
 	}
 };
 
@@ -88,7 +88,7 @@ Template.thumbnails.events({
 var setSizes = function () {
 	Session.set('thumbSize', $(window).width() >= 1200 ? 110:90);
 
-	var vh = parseInt($(window).height() * 0.7);
+	var vh = parseInt($(window).height() * 0.7, 10);
 	Session.set('galleryH', vh);
 };
 

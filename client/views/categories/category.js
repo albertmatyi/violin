@@ -5,7 +5,7 @@ var CATEGORY_FIELDS = {
 	hasDropdown: {
 		type: 'checkbox',
 		label: 'Has dropdown',
-		default: true
+		'default': true
 	},
 	type: {
 		type: 'select',
@@ -18,8 +18,8 @@ var CATEGORY_FIELDS = {
 	},
 	weight: {
 		type: 'text',
-		default: 100,
-		post: function (val) { return parseInt(val); },
+		'default': 100,
+		post: function (val) { return parseInt(val, 10); },
 		hint: 'The heavier the element, the later it will appear'
 	}
 };

@@ -3,24 +3,19 @@
   "dependencies": {
     "basePackages": {
       "iron-router": {},
-      "fast-render": {},
       "bootstrap3-less": {},
       "font-awesome-4-less": {},
       "accounts-ui-bootstrap-3": {},
       "marked": {},
       "GAnalytics": {},
-      "jquery.transit": {}
+      "jquery.transit": {},
+      "fast-render": {}
     },
     "packages": {
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.6.2",
         "commit": "ce56e58b45624dce992490f3a1c10f10d3948bae"
-      },
-      "fast-render": {
-        "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.1.12",
-        "commit": "b190f1592401f4084ce54b8f713b134e35a4e0db"
       },
       "bootstrap3-less": {
         "git": "https://github.com/eprochasson/bootstrap3-less",
@@ -51,6 +46,11 @@
         "git": "https://github.com/noorderstorm/meteor-jquery-transit.git",
         "tag": "v0.1.0",
         "commit": "d3b8a4149ab40b14b125edd473c3850177895fb5"
+      },
+      "fast-render": {
+        "git": "https://github.com/arunoda/meteor-fast-render.git",
+        "tag": "v0.1.12",
+        "commit": "b190f1592401f4084ce54b8f713b134e35a4e0db"
       }
     }
   }

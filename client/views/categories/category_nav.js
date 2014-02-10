@@ -67,7 +67,7 @@ Template.categoryNav.rendered = function () {
 };
 
 Template.categoryNav.helpers({
-	'categories': categories,
+	'categories': categories
 });
 Template.categoryNavDropdown.helpers(_.extend({
 	'categories': categories,
