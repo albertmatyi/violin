@@ -54,7 +54,7 @@ var editPost = function (category, post, postType) {
 
 Template.postSummary.helpers(_.extend({
 	'descriptionSummary': function () {
-		return this.description[i18n.language()].substr(0, 110);
+		return this.description[i18n.language()].substr(0, 90);
 	}
 }, i18n.templateHelperFor('title', 'description')));
 
