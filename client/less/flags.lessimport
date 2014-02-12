@@ -1,4 +1,4 @@
-body{ 
+body{
 	overflow-x: hidden;
 }
 .flags {
@@ -9,7 +9,7 @@ body{
 	overflow: show;
 	.flag {
 		margin-bottom: 5px;
-		width: @social-flag-size;
+		width: @social-flag-size + 10px;
 		.start, .title, .end {
 			float: left;
 			background-repeat: repeat-x;

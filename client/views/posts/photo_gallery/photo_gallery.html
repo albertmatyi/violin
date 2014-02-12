@@ -43,7 +43,15 @@
 	<div class="row viewer">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="thumbnail">
-				<img src="{{ selectedImage }}" />
+				<img class="image" src="{{ selectedImage }}" />
+			</div>
+		</div>
+		<div class="controls">
+			<div class="left">
+				<a href="#{{selectedImageHash -1}}" class="fa fa-chevron-left"></a>
+			</div>
+			<div class="right">
+				<a href="#{{selectedImageHash 1}}" class="fa fa-chevron-right"></a>
 			</div>
 		</div>
 	</div>
