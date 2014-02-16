@@ -98,6 +98,9 @@ Template.galleryViewer.events({
 		e.preventDefault();
 		var data = getAlbum.call(this);
 		changeSelection(data, 1);
+	},
+	'keypress': function (e) {
+		console.log(e);
 	}
 });
 
