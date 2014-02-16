@@ -62,7 +62,7 @@ Template.galleryViewer.helpers({
 		var gh = Session.get('galleryH');
 		if (img) {
 			img = img.content.src;
-			if (!mock){
+			if (!mock) {
 				img = img.replace(/\/([^/]*)$/i, '/h' + gh + '/$1');
 				console.log(img);
 			}
@@ -85,7 +85,11 @@ var changeSelection = function (data, delta) {
 	Session.set('gallerySelection', imgs[newIdx]);
 
 	$('.thumbnails .thumbnail.active').removeClass('active');
-	$($('.thumbnails .thumbnail')[newIdx]).addClass('active');
+	var $actEl = $($('.thumbnails .thumbnail')[newIdx]).addClass('active');
+	var left = $actEl.parent().width() * newIdx;
+	var $row = $actEl.parents('.row').first();
+	console.log(left);
+	$row.animate({scrollLeft: left});
 };
 
 Template.galleryViewer.events({
