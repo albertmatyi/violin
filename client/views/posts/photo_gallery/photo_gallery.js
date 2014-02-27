@@ -21,6 +21,17 @@ PHOTO_GALLERY_FIELDS = {
 	}
 };
 
+var mock = true;
+var MOCK_GALLERY = {
+	feed: {
+		entry: _.map([0,1,2,3,4,5,6,7,8,9], function (i) {
+			return {
+				content: {src: '/pix/test/' + i + '.jpg'}
+			};
+		})
+	}
+};
+
 var baseUrl = 'https://picasaweb.google.com/data/feed/api/user/:user/albumid/:albumId?alt=json&callback=?&v=2';
 
 var getAlbum = function () {
@@ -28,10 +39,14 @@ var getAlbum = function () {
 
 	var data = Session.get(salbumId);
 	if (!data) {
-		var url = baseUrl.replace(/\:user/gi, this.username).replace(/\:albumid/gi, this.albumId);
-		$.getJSON(url).done(function(data) {
-			return Session.set(salbumId, data);
-		});
+		if (mock) {
+			data = MOCK_GALLERY;
+		} else {
+			var url = baseUrl.replace(/\:user/gi, this.username).replace(/\:albumid/gi, this.albumId);
+			$.getJSON(url).done(function(data) {
+				return Session.set(salbumId, data);
+			});
+		}
 	}
 	return data;
 };
@@ -46,12 +61,50 @@ Template.galleryViewer.helpers({
 		var img = Session.get('gallerySelection');
 		var gh = Session.get('galleryH');
 		if (img) {
-			img = img.content.src.replace(/\/([^/]*)$/i, '/h' + gh + '/$1');
-			console.log(img);
+			img = img.content.src;
+			if (!mock) {
+				img = img.replace(/\/([^/]*)$/i, '/h' + gh + '/$1');
+				console.log(img);
+			}
 			return img;
 		} else {
 			return '/pix/loading.png';
 		}
+	}
+});
+
+var changeSelection = function (data, delta) {
+	var current = Session.get('gallerySelection');
+	var imgs = data.feed.entry;
+	for (var i = imgs.length - 1; i >= 0; i--) {
+		if (current.content.src === imgs[i].content.src) {
+			break;
+		}
+	}
+	var newIdx = (imgs.length + i + delta) % imgs.length;
+	Session.set('gallerySelection', imgs[newIdx]);
+
+	$('.thumbnails .thumbnail.active').removeClass('active');
+	var $actEl = $($('.thumbnails .thumbnail')[newIdx]).addClass('active');
+	var left = $actEl.parent().width() * newIdx;
+	var $row = $actEl.parents('.row').first();
+	console.log(left);
+	$row.animate({scrollLeft: left});
+};
+
+Template.galleryViewer.events({
+	'click .left': function (e) {
+		e.preventDefault();
+		var data = getAlbum.call(this);
+		changeSelection(data, -1);
+	},
+	'click .right': function (e) {
+		e.preventDefault();
+		var data = getAlbum.call(this);
+		changeSelection(data, 1);
+	},
+	'keypress': function (e) {
+		console.log(e);
 	}
 });
 
@@ -66,6 +119,7 @@ Template.thumbnails.helpers({
 			Meteor.setTimeout(function () {
 				if (!Session.get('gallerySelection')) {
 					Session.set('gallerySelection', data.feed.entry[0]);
+					changeSelection(data, 0);
 				}
 			}, 1000);
 			return data.feed.entry;
@@ -74,7 +128,9 @@ Template.thumbnails.helpers({
 	image: function () {
 		var thumb = this.content.src;
 		var thumbSize = Session.get('thumbSize');
-		thumb = thumb.replace(/\/([^/]*)$/i, '/s' + thumbSize + '-c/$1');
+		if (!mock) {
+			thumb = thumb.replace(/\/([^/]*)$/i, '/s' + thumbSize + '-c/$1');
+		}
 		return thumb;
 	}
 });

@@ -23,13 +23,95 @@
 }
 
 .gallery {
-	.thumbnails {
+	@arrow-size: 3em;
+	.viewer {
+		position: relative;
 		.image {
-			height: 90px;
-			background-size: cover;
+			height: 100%;
+			width: 100%;
+			background-size: contain;
+			background-repeat: no-repeat;
 			background-position: center center;
+		}
+		.controls {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.left, .right {
+				position: absolute;
+				font-size: @arrow-size;
+				top: 50%;
+				margin-top: -@arrow-size / 2;
+				a {
+					text-decoration: none;
+				}
+			}
+			.left {
+				left: 1em;
+			}
+			.right {
+				right: 1em;
+			}
+		}
+	}
+	.thumbnails {
+		@thumb-h: 90px;
+		@thumb-h-lg: 110px;
+		position: relative;
+		.row {
+			white-space: nowrap;
+		 	overflow: hidden;
+		 	.transition(all 1s ease);
+			 > * {
+			 	float: none;
+			 	display: inline-block;
+			 }
+		}
+		.control {
+			position: absolute;
+			font-size: @arrow-size;
+			height: @thumb-h;
+			top: 5px;
+			z-index: 100;
+			a {
+				position: absolute;
+				top: 50%;
+				margin-top: -.5em;
+				text-decoration: none;
+			}
 			@media (min-width: @screen-md-max) {
-				height: 110px;
+				height: @thumb-h-lg;
+			}
+			&.left {
+				#gradient.horizontal(@grayBg, rgba(0,0,0,0), 0%, 70%);
+				left: 0;
+				a {
+					left: .3em;
+				}
+			}
+			&.right {
+				right: 0;
+				#gradient.horizontal(rgba(0,0,0,0), @grayBg, 30%, 100%);
+				a {
+					right: .3em;
+				}
+			}
+		}
+		.thumbnail {
+		 	.transition(all 1s ease);
+			&.active {
+				border-color: @orange;
+			}
+			.image {
+				cursor: pointer;
+				background-size: cover;
+				background-position: center center;
+				height: @thumb-h;
+				@media (min-width: @screen-md-max) {
+					height: @thumb-h-lg;
+				}
 			}
 		}
 	}
