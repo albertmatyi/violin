@@ -5,6 +5,7 @@
 
 @background: #222 url(/pix/bg.png) repeat;
 @grayBg: #0d1f1f;
+@grayBgA0: rgba(13, 31, 31, 0);
 @brownBg: #d6d2b8;
 @orange: #d4a030;
 @social-flag-size: 75px;

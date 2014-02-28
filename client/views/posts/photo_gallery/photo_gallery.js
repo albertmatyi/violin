@@ -21,10 +21,10 @@ PHOTO_GALLERY_FIELDS = {
 	}
 };
 
-var mock = true;
+var mock = false;
 var MOCK_GALLERY = {
 	feed: {
-		entry: _.map([0,1,2,3,4,5,6,7,8,9], function (i) {
+		entry: _.map([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9], function (i) {
 			return {
 				content: {src: '/pix/test/' + i + '.jpg'}
 			};
@@ -34,15 +34,15 @@ var MOCK_GALLERY = {
 
 var baseUrl = 'https://picasaweb.google.com/data/feed/api/user/:user/albumid/:albumId?alt=json&callback=?&v=2';
 
-var getAlbum = function () {
-	var salbumId = 'album' + this.username + this.albumId;
+var getAlbum = function (post) {
+	var salbumId = 'album' + post.username + post.albumId;
 
 	var data = Session.get(salbumId);
 	if (!data) {
 		if (mock) {
 			data = MOCK_GALLERY;
 		} else {
-			var url = baseUrl.replace(/\:user/gi, this.username).replace(/\:albumid/gi, this.albumId);
+			var url = baseUrl.replace(/\:user/gi, post.username).replace(/\:albumid/gi, post.albumId);
 			$.getJSON(url).done(function(data) {
 				return Session.set(salbumId, data);
 			});
@@ -52,13 +52,18 @@ var getAlbum = function () {
 };
 
 Template.photoGalleryListItem.helpers(_.extend({
-	album: getAlbum
+	album: function () { return getAlbum(this); }
 }, i18n.templateHelperFor('title')));
 
+var images = function () {
+	var data = Session.get('currentGallery');
+	return data ? data.feed.entry:{feed:{entry:[]}};
+};
 
 Template.galleryViewer.helpers({
 	selectedImage: function () {
-		var img = Session.get('gallerySelection');
+		var imgIdx = Session.get('gallerySelection');
+		var img = images()[imgIdx];
 		var gh = Session.get('galleryH');
 		if (img) {
 			img = img.content.src;
@@ -73,53 +78,93 @@ Template.galleryViewer.helpers({
 	}
 });
 
-var changeSelection = function (data, delta) {
-	var current = Session.get('gallerySelection');
-	var imgs = data.feed.entry;
-	for (var i = imgs.length - 1; i >= 0; i--) {
-		if (current.content.src === imgs[i].content.src) {
-			break;
-		}
-	}
-	var newIdx = (imgs.length + i + delta) % imgs.length;
-	Session.set('gallerySelection', imgs[newIdx]);
+var select = function (newIdx) {
+	var imgs = images();
+	newIdx = (imgs.length + newIdx) % imgs.length;
+
+	Session.set('gallerySelection', newIdx);
 
 	$('.thumbnails .thumbnail.active').removeClass('active');
 	var $actEl = $($('.thumbnails .thumbnail')[newIdx]).addClass('active');
-	var left = $actEl.parent().width() * newIdx;
+	var left = $actEl.parent().outerWidth() * (newIdx -1);
 	var $row = $actEl.parents('.row').first();
-	console.log(left);
 	$row.animate({scrollLeft: left});
+};
+
+var changeSelection = function (delta) {
+	var currentIdx = Session.get('gallerySelection');
+	var newIdx = currentIdx + delta;
+	select(newIdx);
 };
 
 Template.galleryViewer.events({
 	'click .left': function (e) {
 		e.preventDefault();
-		var data = getAlbum.call(this);
-		changeSelection(data, -1);
+		changeSelection(-1);
 	},
 	'click .right': function (e) {
 		e.preventDefault();
-		var data = getAlbum.call(this);
-		changeSelection(data, 1);
-	},
-	'keypress': function (e) {
-		console.log(e);
+		changeSelection(1);
 	}
 });
 
+var changeLeft = function () {
+	changeSelection(-1);
+};
+var changeRight = function () {
+	changeSelection(1);
+};
+var keyHandler = function (e) {
+	if (e.keyCode === 37) {
+		changeLeft();
+	} else if (e.keyCode === 39) {
+		changeRight();
+	}
+};
+
 Template.galleryViewer.rendered = function () {
+	$('body').off('keyup', keyHandler);
+	$('body').on('keyup', keyHandler);
+	Hammer(this.firstNode).off('swipeleft', changeRight);
+	Hammer(this.firstNode).off('swiperight', changeLeft);
+	Hammer(this.firstNode).on('swipeleft', changeRight);
+	Hammer(this.firstNode).on('swiperight', changeLeft);
 	$('.thumbnail', this.firstNode).css({height: Session.get('galleryH') + 10 });
+};
+
+var pageLeft = function () {
+
+};
+
+var page = function (dir) {
+	var $row = $('.thumbnails .row');
+	var left = $row.width() / 2;
+	$row.animate({scrollLeft: $row.scrollLeft() + left * dir});
+};
+
+var pageLeft = function () {
+	page(-1);
+};
+
+var pageRight = function () {
+	page(1);
+};
+
+Template.thumbnails.rendered = function () {
+	Hammer(this.firstNode).off('swipeleft', pageRight);
+	Hammer(this.firstNode).off('swiperight', pageLeft);
+	Hammer(this.firstNode).on('swipeleft', pageRight);
+	Hammer(this.firstNode).on('swiperight', pageLeft);
 };
 
 Template.thumbnails.helpers({
 	thumbnails: function () {
-		var data = getAlbum.call(this);
+		var data = Session.get('currentGallery');
 		if (data) {
 			Meteor.setTimeout(function () {
 				if (!Session.get('gallerySelection')) {
-					Session.set('gallerySelection', data.feed.entry[0]);
-					changeSelection(data, 0);
+					Session.set('gallerySelection', 0);
+					changeSelection(0);
 				}
 			}, 1000);
 			return data.feed.entry;
@@ -136,9 +181,11 @@ Template.thumbnails.helpers({
 });
 
 Template.thumbnails.events({
-	'click .image': function () {
-		Session.set('gallerySelection', this);
-	}
+	'click .image': function (ev) {
+		select($(ev.target).parent().parent().index() - 2);
+	},
+	'click .control.left': pageLeft,
+	'click .control.right': pageRight
 });
 
 var setSizes = function () {
@@ -153,4 +200,20 @@ Meteor.startup(function () {
 	$(window).on('resize', setSizes);
 });
 
+
 // http://img.youtube.com/vi/4q8_OZfIp9Y/hqdefault.jpg
+Router.after(function () {
+	Session.set('currentGallery', getAlbum(this.data().post));
+}, {
+	only: ['gallery']
+});
+
+Router.unload(function () {
+	$('body').off('keypress', keyHandler);
+	Hammer(this.firstNode).off('swipeleft', pageRight);
+	Hammer(this.firstNode).off('swiperight', pageLeft);
+	Hammer(this.firstNode).off('swipeleft', changeRight);
+	Hammer(this.firstNode).off('swiperight', changeLeft);
+}, {
+	only: ['gallery']
+});

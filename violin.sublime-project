@@ -4,7 +4,18 @@
 		{
 			"follow_symlinks": true,
 			"path": "./",
-			"file_exclude_patterns": [".meteor/*", "packages/*", ".demeteorized/*", ".openshift/*"]
+			"file_exclude_patterns": [
+				".meteor/*", 
+				"packages/GAnalytics", 
+				"packages/accounts-ui-bootstrap-3", 
+				"packages/fast-render", 
+				"packages/font-awesome-4-less", 
+				"packages/hammer", 
+				"packages/iron-router", 
+				"packages/jquerytransit", 
+				"packages/marked", 
+				".demeteorized/*", 
+				".openshift/*"]
 		}
 	]
 }

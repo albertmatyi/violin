@@ -30,6 +30,7 @@
         "Meteor",
         "Handlebars",
         "Session",
+        "Hammer",
         "Editor",
         "_",
         "Deps",

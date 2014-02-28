@@ -39,6 +39,7 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
+
 			.left, .right {
 				position: absolute;
 				font-size: @arrow-size;
@@ -55,6 +56,16 @@
 				right: 1em;
 			}
 		}
+		@media (max-width: @screen-sm-max) {
+			.controls {
+				left: -70px;
+				right: -70px;
+			}
+			.thumbnail {
+				border: none;
+			}
+		}
+
 	}
 	.thumbnails {
 		@thumb-h: 90px;
@@ -62,18 +73,18 @@
 		position: relative;
 		.row {
 			white-space: nowrap;
-		 	overflow: hidden;
-		 	.transition(all 1s ease);
-			 > * {
-			 	float: none;
-			 	display: inline-block;
-			 }
+			overflow: hidden;
+			.transition(all 1s ease);
+			> * {
+				float: none;
+				display: inline-block;
+			}
 		}
 		.control {
 			position: absolute;
 			font-size: @arrow-size;
-			height: @thumb-h;
-			top: 5px;
+			height: @thumb-h + 10px;
+			top: 0px;
 			z-index: 100;
 			a {
 				position: absolute;
@@ -82,10 +93,10 @@
 				text-decoration: none;
 			}
 			@media (min-width: @screen-md-max) {
-				height: @thumb-h-lg;
+				height: @thumb-h-lg + 10px;
 			}
 			&.left {
-				#gradient.horizontal(@grayBg, rgba(0,0,0,0), 0%, 70%);
+				#gradient.horizontal(@grayBg, @grayBgA0, 0%, 70%);
 				left: 0;
 				a {
 					left: .3em;
@@ -93,14 +104,14 @@
 			}
 			&.right {
 				right: 0;
-				#gradient.horizontal(rgba(0,0,0,0), @grayBg, 30%, 100%);
+				#gradient.horizontal(@grayBgA0, @grayBg, 30%, 100%);
 				a {
 					right: .3em;
 				}
 			}
 		}
 		.thumbnail {
-		 	.transition(all 1s ease);
+			.transition(all 1s ease);
 			&.active {
 				border-color: @orange;
 			}

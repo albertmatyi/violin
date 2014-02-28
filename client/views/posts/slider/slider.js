@@ -3,6 +3,7 @@ SLIDER_FIELDS = {
 		'default': fixie.fetchPhrase
 	},
 	description: {
+		type: 'textarea',
 		'default': fixie.fetchPhrase
 	},
 	link: {
