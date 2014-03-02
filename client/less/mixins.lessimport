@@ -38,9 +38,17 @@
 }
 
 #gradient {
-.radialCust(@inner-color: #555; @outer-color: #333, @size: 200px, @hPos: center, @vPos: center) {
-    background-image: -webkit-radial-gradient(circle @size at @hPos, @inner-color, @outer-color);
-    background-image: radial-gradient(circle @size at @vPos, @inner-color, @outer-color);
-    background-repeat: no-repeat;
-  }
+	.radialCust(@inner-color: #555; @outer-color: #333, @size: 200px, @hPos: center, @vPos: center) {
+		background-image: -webkit-radial-gradient(circle @size at @hPos, @inner-color, @outer-color);
+		background-image: radial-gradient(circle @size at @vPos, @inner-color, @outer-color);
+		background-repeat: no-repeat;
+	}
+}
+
+#background {
+	.cover(@image: 'path_to_image') {
+		background-size: cover;
+		repeat: no-repeat;
+		-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@{image}', sizingMethod='scale')";
+	}
 }

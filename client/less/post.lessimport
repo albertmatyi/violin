@@ -21,7 +21,7 @@
 		}
 		.image {
 			height: 100%;
-			background-size: cover;
+			#background.cover();
 			background-position: center;
 		}
 	}
