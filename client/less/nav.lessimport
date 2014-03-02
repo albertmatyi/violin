@@ -110,3 +110,19 @@
 		}
 	}
 }
+
+// IE shit
+.navbar-default {
+	background-color: transparent;
+	border: none;
+	.navbar-nav {
+		& > .open > a:focus {
+			background-color: transparent;
+		}
+		& > .active > a {
+			&, &:hover {
+				background-color: transparent;
+			}
+		}
+	}
+}
