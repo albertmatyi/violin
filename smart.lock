@@ -8,9 +8,9 @@
       "accounts-ui-bootstrap-3": {},
       "marked": {},
       "jquery.transit": {},
-      "fast-render": {},
       "GAnalytics": {},
-      "hammer": {}
+      "hammer": {},
+      "respond": {}
     },
     "packages": {
       "iron-router": {
@@ -43,11 +43,6 @@
         "tag": "v0.1.0",
         "commit": "d3b8a4149ab40b14b125edd473c3850177895fb5"
       },
-      "fast-render": {
-        "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.1.16",
-        "commit": "e08aa22d76f25bb43e9d0f8bee3880c686f62b2b"
-      },
       "GAnalytics": {
         "git": "https://github.com/datariot/meteor-ganalytics.git",
         "tag": "v0.1.1",
@@ -57,6 +52,11 @@
         "git": "https://github.com/noorderstorm/meteor-hammer.git",
         "tag": "v0.1.3",
         "commit": "1d37707c251c04c7d9b6023ba959b23c1f257c44"
+      },
+      "respond": {
+        "git": "https://github.com/BenjaminRH/meteor-respond.git",
+        "tag": "v0.1.0",
+        "commit": "a8a867580f9a08759fdf02a2d0254ff6bb223391"
       }
     }
   }

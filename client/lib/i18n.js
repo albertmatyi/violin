@@ -10,9 +10,13 @@ Handlebars.registerHelper('i18n', function (key) {
 Template.languageBar.helpers({
 	languages: function () {
 		var langs = AppCollection.findOne({key: 'languages'});
-		return _.map(langs.value, function(e) {
-			return {language: e};
-		});
+		if (langs) {
+			return _.map(langs.value, function(e) {
+				return {language: e};
+			});
+		} else {
+			return [{language: 'en'}];
+		}
 	}
 });
 

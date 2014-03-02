@@ -44,7 +44,7 @@ var layoutMenu = function () {
 		w2 += $e.outerWidth();
 		return $e;
 	});
-	var ulW = $('.navbar-nav').width();
+	var ulW = $('.navbar-nav').width() || ($('.container').width() - 22);
 	var phW = Math.max(260, Math.min(320, ulW - (w1 + w2)));
 	var sideW = (ulW - phW) / 2 - 1;
 	_.each($els1, function ($e) {

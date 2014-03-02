@@ -6,8 +6,8 @@
     "accounts-ui-bootstrap-3": {},
     "marked": {},
     "jquery.transit": {},
-    "fast-render": {},
     "GAnalytics": {},
-    "hammer": {}
+    "hammer": {},
+    "respond": {}
   }
 }
