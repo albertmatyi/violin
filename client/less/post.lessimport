@@ -1,6 +1,8 @@
 .post {
-	@contentHPad: 23px;
-	@contentH: 180px;
+	&:not(.summary) > .row {
+		margin-left: 0;
+		margin-right: 0;
+	}
 	.thumbnail {
 		position: relative;
 		.admin-controls {
@@ -14,10 +16,10 @@
 	}
 
 	.image-wrapper {
-		height: @contentH + @contentHPad;
+		height: @post-height + @post-margin-bottom;
 		overflow: hidden;
 		.thumbnail {
-			height: @contentH;
+			height: @post-height;
 		}
 		.image {
 			height: 100%;
@@ -26,17 +28,30 @@
 		}
 	}
 	.content {
-		min-height: @contentH + @contentHPad;
+		min-height: @post-height + @post-margin-bottom;
+		.title {
+			margin-top: 0;
+		}
 		.thumbnail {
-			min-height: @contentH;
+			min-height: @post-height;
 		}
 	}
 	&.summary {
+		&:nth-child(odd) {
+			.row {
+				margin-left: 0;
+			}
+		}
+		&:nth-child(even) {
+			.row {
+				margin-right: 0;
+			}
+		}
 		.content {
-			height: @contentH + @contentHPad;
+			height: @post-height + @post-margin-bottom;
 			overflow: hidden;
 			.thumbnail {
-				height: @contentH;
+				height: @post-height;
 			}
 		}
 	}

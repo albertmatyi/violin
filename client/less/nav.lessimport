@@ -102,7 +102,7 @@
 			&.logo-placeholder{
 				border-bottom: none;
 				border-top: none;
-				width: 230px;
+				width: 300px;
 				@media (min-width: @screen-lg-min) {
 					width: 350px;
 				}

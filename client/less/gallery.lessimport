@@ -68,6 +68,10 @@
 
 	}
 	.thumbnails {
+		&.row {
+			margin-left: 0;
+			margin-right: 0;
+		}
 		@thumb-h: 90px;
 		@thumb-h-lg: 110px;
 		position: relative;

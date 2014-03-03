@@ -25,9 +25,20 @@ var positionDropdown = function ($el, width) {
 };
 
 var layoutMenu = function () {
-	var $lis = $('.navbar-nav > li');
+	var $lis = $('.navbar-nav > li:visible');
 	if ($(window).width() < 992) {
-		$lis.css({width: ''});
+		var totalW = $('.navbar-nav').width();
+		var curW = +2; //safety value
+		$lis.each(function () {
+			curW += $(this).outerWidth();
+		});
+		console.log(curW);
+		console.log(totalW);
+		$lis.each(function () {
+			var $e = $(this);
+			var nw = $e.width() / curW * totalW;
+			$e.css({width: nw + 'px'});
+		});
 		return;
 	}
 	var $placeholder = $('.navbar-nav > li.logo-placeholder');
@@ -45,7 +56,7 @@ var layoutMenu = function () {
 		return $e;
 	});
 	var ulW = $('.navbar-nav').width() || ($('.container').width() - 22);
-	var phW = Math.max(260, Math.min(320, ulW - (w1 + w2)));
+	var phW = Math.max(300, Math.min(350, ulW - (w1 + w2)));
 	var sideW = (ulW - phW) / 2 - 1;
 	_.each($els1, function ($e) {
 		var nw = sideW * $e.width()/w1;

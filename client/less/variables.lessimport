@@ -35,8 +35,10 @@
 @thumbnail-border: @grayBorder;
 @thumbnail-bg: transparent;
 
-
 @grid-gutter-width: 20px;
+@post-height: 180px;
+@post-margin-bottom: 20px;
+@thumbnail-padding: 10px;
 
 @container-tablet:             ((720px + @grid-gutter-width));
 @container-sm:                 @container-tablet;
